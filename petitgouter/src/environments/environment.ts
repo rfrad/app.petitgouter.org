@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  envName: 'localhost',
+  apiServer: 'dev-api.petitgouter.org' // Our localhost application will use our dev backend
 };
 
 /*

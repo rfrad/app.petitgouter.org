@@ -6,7 +6,10 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "build-dev-app": "ng build --configuration=dev-app --output-path dist/dev-app --aot=true",
+    "build-test-app": "ng build --configuration=test-app --output-path dist/test-app --aot=true",
+    "build-app": "ng build --configuration=app --output-path dist/app --aot=true"
   },
   "private": true,
   "dependencies": {

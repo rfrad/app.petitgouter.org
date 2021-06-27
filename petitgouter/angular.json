@@ -36,26 +36,23 @@
             "scripts": []
           },
           "configurations": {
-            "production": {
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
-                },
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
-                  "maximumError": "4kb"
-                }
-              ],
-              "fileReplacements": [
-                {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
-                }
-              ],
-              "outputHashing": "all"
+            "dev-app": {
+                "fileReplacements": [{
+                    "replace": "src/environments/environment.ts",
+                    "with": "src/environments/environment.dev-app.ts"
+                }]
+            },
+            "test-app": {
+                "fileReplacements": [{
+                    "replace": "src/environments/environment.ts",
+                    "with": "src/environments/environment.test-app.ts"
+                }]
+            },
+            "app": {
+                "fileReplacements": [{
+                    "replace": "src/environments/environment.ts",
+                    "with": "src/environments/environment.app.ts"
+                }]
             },
             "development": {
               "buildOptimizer": false,
@@ -71,14 +68,17 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
-            "production": {
-              "browserTarget": "petitgouter:build:production"
+            "dev-app": {
+              "browserTarget": "petitgouter:build:dev-app"
             },
-            "development": {
-              "browserTarget": "petitgouter:build:development"
+            "test-app": {
+              "browserTarget": "petitgouter:build:test-app"
+            },
+            "app": {
+              "browserTarget": "petitgouter:build:app"
             }
           },
-          "defaultConfiguration": "development"
+          "defaultConfiguration": "dev-app"
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
