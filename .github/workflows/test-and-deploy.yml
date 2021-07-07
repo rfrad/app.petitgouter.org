@@ -11,7 +11,7 @@ jobs:
       - run: echo "install node and build"
       - name: Install nodejs
         uses: actions/setup-node@v2.2.0
-      - run: npm install @angular/cli
+      - run: npm install -g @angular/cli
       - run: npm run test-cicd --prefix petitgouter
       - run: npm run build-dev-app --prefix petitgouter
       - name: Setup AWS SAM CLI
