@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "test-cicd": "ng test --no-watch --sourceMap=false --code-coverage=true",
+    "test-cicd": "ng test --no-watch --sourceMap=false --code-coverage=true --browsers=ChromeHeadless",
     "build-dev-app": "ng build -c=dev-app --output-path dist/dev-app --aot=true",
     "build-test-app": "ng build -c=test-app --output-path dist/test-app --aot=true",
     "build-app": "ng build -c=app --output-path dist/app --aot=true"
