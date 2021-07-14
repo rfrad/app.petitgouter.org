@@ -1,4 +1,5 @@
 name: Test, build code and deploy to dev-app
+# T: push on master
 on: [push]
 jobs:
   BuildAndDeploy:
@@ -8,12 +9,18 @@ jobs:
       - run: echo "Checkout the code from ${{ github.repository }}."
       - name: Check out repository code
         uses: actions/checkout@v2
+
+      # A: Unit tests
       - run: echo "install node and build"
       - name: Install nodejs
         uses: actions/setup-node@v2.2.0
       - run: npm install --prefix petitgouter
       - run: npm run test-cicd --prefix petitgouter
+
+      # A: Build dev-app 
       - run: npm run build-dev-app --prefix petitgouter
+
+      # A: Deploy to dev-app  
       - name: Setup AWS SAM CLI
         uses: aws-actions/configure-aws-credentials@v1
         with:
