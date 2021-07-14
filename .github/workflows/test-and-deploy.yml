@@ -1,7 +1,7 @@
 name: Test, build code and deploy to dev-app
 on: [push]
 jobs:
-  Build:
+  BuildAndDeploy:
     runs-on: ubuntu-latest
     environment: dev-app
     steps:
@@ -24,4 +24,4 @@ jobs:
       - run: aws s3 sync --delete --exact-timestamps petitgouter/dist/dev-app s3://${{ secrets.AWS_S3_BUCKET }}
       - run: echo "Refresh CloudFront cache."
       - run: aws cloudfront create-invalidation --distribution-id ${{ secrets.AWS_CLOUDFRONT_DISTRIBUTION_ID }} --paths "/*"
-      - run: echo "Checkout status - ${{ job.status }}."
+      - run: echo "Deployment status - ${{ job.status }}."
