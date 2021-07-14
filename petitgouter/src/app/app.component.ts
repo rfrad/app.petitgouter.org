@@ -9,4 +9,5 @@ import { environment } from 'src/environments/environment';
 export class AppComponent {
   title = 'petitgouter';
   env = environment.envName;
+  backend = environment.apiServer;
 }

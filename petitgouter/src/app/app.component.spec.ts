@@ -31,6 +31,6 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('Welcome to the environment ' + environment.envName + ' of my-domain SPA!');
+    expect(compiled.querySelector('.content span').textContent).toContain('Welcome to the environment ' + environment.envName + ' of my-domain SPA! My backend is exposed on: ' + environment.apiServer);
   });
 });
