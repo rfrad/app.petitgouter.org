@@ -1,0 +1,10 @@
+name: Test, build code and deploy to dev-app
+on: [push]
+jobs:
+  Checkout-code:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Checkout the code from ${{ github.repository }}."
+      - name: Check out repository code
+        uses: actions/checkout@v2
+      - run: echo "Checkout status - ${{ job.status }}."
