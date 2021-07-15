@@ -46,12 +46,12 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v2.2.0
       - run: npm install
-      - run: npm run build-test-app
+      - run: npm run build-dev-app
       - name: Artifact build
         uses: actions/upload-artifact@v2
         with:
-          name: build-test-app
-          path: dist/test-app
+          name: build-dev-app
+          path: dist/dev-app
 
   # A: Deploy to dev-app
   # Once the build is successful, this job downloads 
@@ -62,12 +62,12 @@ jobs:
   Deploy:
     runs-on: ubuntu-latest  
     needs: Build
-    environment: test-app
+    environment: dev-app
     steps:
       - name: Download code
         uses: actions/download-artifact@v2
         with:
-          name: build-test-app
+          name: build-dev-app
           path: build-directory
       - run: ls
       - name: Setup AWS SAM CLI
