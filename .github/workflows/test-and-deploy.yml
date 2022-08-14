@@ -15,6 +15,10 @@ jobs:
       - run: echo GITHUB_JOB $GITHUB_JOB
       - run: echo GITHUB_RUN_NUMBER $GITHUB_RUN_NUMBER
       - run: echo GITHUB_WORKFLOW $GITHUB_WORKFLOW
+      - run: echo GITHUB_EVENT_PATH $GITHUB_EVENT_PATH
+      - run: echo GITHUB_WORKSPACE $GITHUB_WORKSPACE
+      - run: echo GITHUB_PATH $GITHUB_PATH
+      - run: echo GITHUB_ACTION_PATH $GITHUB_ACTION_PATH
       - name: Create an artefact from the code
         uses: actions/upload-artifact@v2
         with:
