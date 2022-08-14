@@ -80,7 +80,6 @@ jobs:
         with:
           name: build-${{ matrix.environment }}
           path: build-directory
-      - run: ls
       - name: Setup AWS SAM CLI
         uses: aws-actions/configure-aws-credentials@v1
         with:
