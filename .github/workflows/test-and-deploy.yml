@@ -5,7 +5,7 @@ jobs:
   # Checkout:
   # The purpose of this job is to download the code and create an artefact 
   # that can be reused by the next steps.
-  Checkout:
+  Checkout_1.1.X:
     runs-on: ubuntu-latest
     steps:
       - name: Check out code
@@ -19,6 +19,7 @@ jobs:
       - run: echo GITHUB_WORKSPACE $GITHUB_WORKSPACE
       - run: echo GITHUB_PATH $GITHUB_PATH
       - run: echo GITHUB_ACTION_PATH $GITHUB_ACTION_PATH
+      - run: echo GITHUB_JOB $GITHUB_JOB
       - name: Create an artefact from the code
         uses: actions/upload-artifact@v2
         with:
