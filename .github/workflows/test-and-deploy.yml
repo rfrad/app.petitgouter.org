@@ -10,16 +10,8 @@ jobs:
     steps:
       - name: Check out code
         uses: actions/checkout@v2
-      - run: echo GITHUB_ACTION $GITHUB_ACTION
-      - run: echo GITHUB_ACTION_PATH $GITHUB_ACTION_PATH
-      - run: echo GITHUB_JOB $GITHUB_JOB
-      - run: echo GITHUB_RUN_NUMBER $GITHUB_RUN_NUMBER
-      - run: echo GITHUB_WORKFLOW $GITHUB_WORKFLOW
-      - run: echo GITHUB_EVENT_PATH $GITHUB_EVENT_PATH
-      - run: echo GITHUB_WORKSPACE $GITHUB_WORKSPACE
-      - run: echo GITHUB_PATH $GITHUB_PATH
-      - run: echo GITHUB_ACTION_PATH $GITHUB_ACTION_PATH
-      - run: echo GITHUB_JOB $GITHUB_JOB
+      - run: version = echo $GITHUB_WORKFLOW | grep -E [0-9]+\.[0-9]+\.X | sed -r "s/X/$GITHUB_RUN_NUMBER/g"
+      - run: echo version $version
       - name: Create an artefact from the code
         uses: actions/upload-artifact@v2
         with:
@@ -30,7 +22,7 @@ jobs:
   # This job run the unit tests on the application.
   Test:
     runs-on: ubuntu-latest
-    needs: Checkout_1-1-X
+    needs: Checkout
     steps:
       - name: Download code
         uses: actions/download-artifact@v2
