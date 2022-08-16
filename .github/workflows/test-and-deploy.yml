@@ -11,6 +11,9 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v2
       - run: ls
+      - run: ls petitgouter
+      - run: ls petitgouter/src
+      - run: ls petitgouter/src/environments
       - run: pwd
       - run: sed -i '' "s|APP_VERSION|$(echo $GITHUB_WORKFLOW | sed -En 's/.*([0-9]+\.[0-9]+\.)X.*/\1/p')$GITHUB_RUN_NUMBER|g" petitgouter/src/environments/environment*.ts
       - run: cat petitgouter/src/environments/environment.ts
