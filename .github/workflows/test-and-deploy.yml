@@ -5,7 +5,7 @@ jobs:
   # Checkout:
   # The purpose of this job is to download the code and create an artefact 
   # that can be reused by the next steps.
-  Checkout_1.1.X:
+  Checkout_1-1-X:
     runs-on: ubuntu-latest
     steps:
       - name: Check out code
