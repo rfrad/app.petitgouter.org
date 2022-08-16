@@ -10,7 +10,7 @@ jobs:
     steps:
       - name: Check out code
         uses: actions/checkout@v2
-      - run: version = echo $GITHUB_WORKFLOW | grep -E [0-9]+\.[0-9]+\.X | sed -r "s/X/$GITHUB_RUN_NUMBER/g"
+      - run: version=$(echo $GITHUB_WORKFLOW | grep -E [0-9]+\.[0-9]+\.X | sed -r "s/X/$GITHUB_RUN_NUMBER/g")
       - run: echo version $version
       - name: Create an artefact from the code
         uses: actions/upload-artifact@v2
