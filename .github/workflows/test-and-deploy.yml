@@ -10,16 +10,8 @@ jobs:
     steps:
       - name: Check out code
         uses: actions/checkout@v2
-      - run: ls
-      - run: ls petitgouter
-      - run: ls petitgouter/src
-      - run: ls petitgouter/src/environments
-      - run: pwd
+        # Auto-generates APP_VERSION in environment files
       - run: sed -i -e "s|APP_VERSION|$(echo $GITHUB_WORKFLOW | sed -En 's/.*([0-9]+\.[0-9]+\.)X.*/\1/p')$GITHUB_RUN_NUMBER|g" petitgouter/src/environments/environment*.ts
-      - run: cat petitgouter/src/environments/environment.ts
-      - run: cat petitgouter/src/environments/environment.app.ts
-      - run: cat petitgouter/src/environments/environment.dev-app.ts
-      - run: cat petitgouter/src/environments/environment.test-app.ts
       - name: Create an artefact from the code
         uses: actions/upload-artifact@v2
         with:
