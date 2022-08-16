@@ -11,8 +11,8 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v2
       - run: echo $GITHUB_WORKFLOW
-      - run: app_version="$(echo $GITHUB_WORKFLOW | sed -En "s/.*([0-9]+\.[0-9]+\.)X.*/\1$GITHUB_RUN_NUMBER/p")"
-      - run: echo version $app_version
+      - run: app_version=`echo $GITHUB_WORKFLOW | sed -En "s/.*([0-9]+\.[0-9]+\.)X.*/\1$GITHUB_RUN_NUMBER/p"`
+      - run: echo "version $app_version"
       - name: Create an artefact from the code
         uses: actions/upload-artifact@v2
         with:
