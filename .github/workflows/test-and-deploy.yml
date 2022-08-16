@@ -10,7 +10,8 @@ jobs:
     steps:
       - name: Check out code
         uses: actions/checkout@v2
-      - run: version=$(echo $GITHUB_WORKFLOW)
+      - run: echo $GITHUB_WORKFLOW
+      - run: version=$(echo "$GITHUB_WORKFLOW")
       - run: echo version $version
       - name: Create an artefact from the code
         uses: actions/upload-artifact@v2
