@@ -1,4 +1,4 @@
-name: Test, build code and deploy to app 0.1.X
+name: Test, build code and deploy to app 0.0.X
 # T: push on master
 on: [push]
 jobs:
@@ -18,6 +18,8 @@ jobs:
       - run: sed -i -e "s|APP_VERSION|$(echo $GITHUB_WORKFLOW | sed -En 's/.*([0-9]+\.[0-9]+\.)X.*/\1/p')$GITHUB_RUN_NUMBER|g" petitgouter/src/environments/environment*.ts
       - run: cat petitgouter/src/environments/environment.ts
       - run: cat petitgouter/src/environments/environment.app.ts
+      - run: cat petitgouter/src/environments/environment.dev-app.ts
+      - run: cat petitgouter/src/environments/environment.test-app.ts
       - name: Create an artefact from the code
         uses: actions/upload-artifact@v2
         with:
