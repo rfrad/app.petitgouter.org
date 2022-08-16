@@ -30,7 +30,7 @@ jobs:
   # This job run the unit tests on the application.
   Test:
     runs-on: ubuntu-latest
-    needs: Checkout
+    needs: Checkout_1-1-X
     steps:
       - name: Download code
         uses: actions/download-artifact@v2
