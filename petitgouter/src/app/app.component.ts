@@ -10,4 +10,5 @@ export class AppComponent {
   title = 'petitgouter';
   env = environment.envName;
   backend = environment.apiServer;
+  appVersion = environment.appVersion;
 }
