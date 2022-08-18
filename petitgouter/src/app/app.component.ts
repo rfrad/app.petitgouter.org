@@ -21,6 +21,6 @@ export class AppComponent implements OnInit {
   ){}
 
   ngOnInit(): void {
-    this.store.dispatch(LoadTranslations({ code: LanguageCode.en }));
+    this.store.dispatch(LoadTranslations({ code: LanguageCode.fr }));
   }
 }
