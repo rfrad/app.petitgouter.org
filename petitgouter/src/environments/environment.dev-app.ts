@@ -1,5 +1,5 @@
 export const environment = {
-    production: true,
+    production: false,
     envName: 'dev-app',
     apiServer: 'dev-api.petitgouter.org',
     appVersion: 'APP_VERSION',
