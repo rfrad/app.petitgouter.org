@@ -7,6 +7,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EffectsModule } from '@ngrx/effects';
 import { reducers } from './store/reducers.store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [
@@ -17,6 +19,10 @@ import { reducers } from './store/reducers.store';
     AppRoutingModule,
     // ngrx related imports
     StoreModule.forRoot(reducers, {}),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25, // Retains last 25 states
+      logOnly: !environment.debugStore, // Restrict extension to log-only mode
+    }),
     EffectsModule.forRoot([TranslationEffects])
   ],
   providers: [],
