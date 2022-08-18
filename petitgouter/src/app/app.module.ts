@@ -9,10 +9,12 @@ import { EffectsModule } from '@ngrx/effects';
 import { reducers } from './store/reducers.store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from 'src/environments/environment';
+import { LanguagePickerComponent } from './components/translation/language-picker/language-picker.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LanguagePickerComponent
   ],
   imports: [
     BrowserModule,
