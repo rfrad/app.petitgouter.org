@@ -4,13 +4,16 @@
         <app-language-picker></app-language-picker>
     </div>
 </div>
-
-<div class="content">
-    <span>Welcome to the environment {{ env }} of my-domain SPA! My backend is exposed on: {{ backend }}</span>
-</div>
 <!-- This is the Angular routing we activated during the creation: -->
 <router-outlet></router-outlet>
 
+<div>
+    {{ 'welcome' | translate | async }}
+</div>
+<div>
+    {{ 'what_we_do' | translate | async }}
+</div>
+
 <div class="footer">
-    <span>{{ title }} version {{ appVersion }}</span>
+    <span>Petit Gouter version {{ appVersion }}</span>
 </div>

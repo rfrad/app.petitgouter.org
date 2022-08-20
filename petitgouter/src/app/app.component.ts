@@ -11,9 +11,6 @@ import { LoadTranslations } from './store/translation/actions.translation';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  title = 'petitgouter';
-  env = environment.envName;
-  backend = environment.apiServer;
   appVersion = environment.appVersion;
 
   constructor(
