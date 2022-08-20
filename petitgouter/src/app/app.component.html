@@ -7,11 +7,13 @@
 <!-- This is the Angular routing we activated during the creation: -->
 <router-outlet></router-outlet>
 
-<div>
-    {{ 'welcome' | translate | async }}
-</div>
-<div>
-    {{ 'what_we_do' | translate | async }}
+<div class="content">
+    <p>
+        {{ 'welcome' | translate | async }}
+    </p>
+    <p>
+        {{ 'what_we_do' | translate | async }}
+    </p> 
 </div>
 
 <div class="footer">
