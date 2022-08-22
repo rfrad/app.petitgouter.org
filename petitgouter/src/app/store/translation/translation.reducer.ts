@@ -1,6 +1,6 @@
 import { createReducer, on } from "@ngrx/store";
-import * as action from "./actions.translation";
-import { initialState } from "./state.translation";
+import * as action from "./translation.actions";
+import { initialState } from "./translation.state";
 
 export const translationReducer = createReducer(
     initialState,

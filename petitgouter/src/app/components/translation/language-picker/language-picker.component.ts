@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { LanguageCode } from 'src/app/model/translation.model';
-import { AppState } from 'src/app/store/state.store';
-import { LoadTranslations } from 'src/app/store/translation/actions.translation';
+import { AppState } from 'src/app/store/store.state';
+import { LoadTranslations } from 'src/app/store/translation/translation.actions';
 
 @Component({
   selector: 'app-language-picker',

@@ -2,8 +2,8 @@ import { AsyncPipe } from '@angular/common';
 import { ChangeDetectorRef, Pipe, PipeTransform } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { AppState } from '../store/state.store';
-import { getTranslation } from '../store/translation/selectors.translation';
+import { AppState } from '../store/store.state';
+import { getTranslation } from '../store/translation/translation.selectors';
 
 @Pipe({
   name: 'translate'

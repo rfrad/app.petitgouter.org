@@ -1,7 +1,7 @@
 import { LanguageCode } from "src/app/model/translation.model";
-import { LoadTranslations, LoadTranslationsError, LoadTranslationsSuccess } from "./actions.translation";
-import { translationReducer } from "./reducer.translation";
-import { TranslationState } from "./state.translation";
+import { LoadTranslations, LoadTranslationsError, LoadTranslationsSuccess } from "./translation.actions";
+import { translationReducer } from "./translation.reducer";
+import { TranslationState } from "./translation.state";
 
 describe('translationReducer', () => {
     describe('LoadTranslations', () => {

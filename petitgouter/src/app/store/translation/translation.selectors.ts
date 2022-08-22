@@ -1,5 +1,5 @@
 import { createSelector } from "@ngrx/store";
-import { AppState } from "../state.store";
+import { AppState } from "../store.state";
 
 export const getCurrentLanguage = createSelector(
     (state: AppState) => state.translations,

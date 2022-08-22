@@ -4,8 +4,8 @@ import { Actions } from "@ngrx/effects";
 import { Action } from "@ngrx/store";
 import { BehaviorSubject, of } from "rxjs";
 import { LanguageCode } from "src/app/model/translation.model";
-import { LoadTranslations, TranslationAction } from "./actions.translation";
-import { TranslationEffects } from "./effects.translation";
+import { LoadTranslations, TranslationAction } from "./translation.actions";
+import { TranslationEffects } from "./translation.effects";
 
 describe('TranslationEffects', () => {
     let effects: TranslationEffects;

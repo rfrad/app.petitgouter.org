@@ -2,8 +2,8 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Actions, ofType } from '@ngrx/effects';
 import { Store, StoreModule } from '@ngrx/store';
 import { LanguageCode } from 'src/app/model/translation.model';
-import { reducers } from 'src/app/store/reducers.store';
-import { LoadTranslations } from 'src/app/store/translation/actions.translation';
+import { reducers } from 'src/app/store/store.reducers';
+import { LoadTranslations } from 'src/app/store/translation/translation.actions';
 
 import { LanguagePickerComponent } from './language-picker.component';
 

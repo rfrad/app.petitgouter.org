@@ -1,4 +1,4 @@
-import { initialState as initialTranslationState, TranslationState } from "./translation/state.translation"
+import { initialState as initialTranslationState, TranslationState } from "./translation/translation.state"
 
 export type AppState = {
     translations: TranslationState

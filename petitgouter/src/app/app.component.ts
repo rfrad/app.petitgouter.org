@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { environment } from 'src/environments/environment';
 import { LanguageCode } from './model/translation.model';
-import { AppState } from './store/state.store';
-import { LoadTranslations } from './store/translation/actions.translation';
+import { AppState } from './store/store.state';
+import { LoadTranslations } from './store/translation/translation.actions';
 
 @Component({
   selector: 'app-root',

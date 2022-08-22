@@ -1,6 +1,6 @@
 import { LanguageCode } from "src/app/model/translation.model";
-import { AppState } from "../state.store";
-import { getCurrentLanguage, getTranslation } from "./selectors.translation";
+import { AppState } from "../store.state";
+import { getCurrentLanguage, getTranslation } from "./translation.selectors";
 
 describe('selectors.translation', () => {
     describe('getCurrentLanguage', () => {
