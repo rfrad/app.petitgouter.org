@@ -21,3 +21,8 @@
 <div class="footer">
     <span>Petit Gouter version {{ appVersion }}</span>
 </div>
+
+<ng-container *ngFor="let layer of overlayerService.overLayers"
+  [ngTemplateOutlet]="layer.template" 
+  [ngTemplateOutletContext]="layer.context">
+</ng-container>
