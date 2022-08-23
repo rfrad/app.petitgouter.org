@@ -6,7 +6,7 @@ describe('selectors.translation', () => {
     describe('getCurrentLanguage', () => {
         it('should retrieve the language code', () => {
             // Given a language is already set up in the store
-            const state: AppState = <AppState>{
+            const state: AppState = <AppState><unknown>{
                 translations: {
                     translations: {},
                     languageCode: LanguageCode.fr
@@ -24,7 +24,7 @@ describe('selectors.translation', () => {
     describe('getTranslation', () => {
         it('should retrieve the translation for the key when it exists', () => {
             // Given the translation key exists
-            const state: AppState = <AppState>{
+            const state: AppState = <AppState><unknown>{
                 translations: {
                     translations: {
                         name: 'RON WEASLEY'

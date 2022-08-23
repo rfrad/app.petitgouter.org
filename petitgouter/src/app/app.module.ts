@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { StoreModule } from '@ngrx/store';
-import { TranslationEffects } from './store/store.effects';
+import { PreferencesEffects, TranslationEffects } from './store/store.effects';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -28,7 +28,7 @@ import { HttpClientModule } from '@angular/common/http'
       maxAge: 25, // Retains last 25 states
       logOnly: !environment.debugStore, // Restrict extension to log-only mode
     }),
-    EffectsModule.forRoot([TranslationEffects]),
+    EffectsModule.forRoot([TranslationEffects, PreferencesEffects]),
     HttpClientModule
   ],
   providers: [],
