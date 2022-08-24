@@ -11,13 +11,15 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from 'src/environments/environment';
 import { LanguagePickerComponent } from './components/translation/language-picker/language-picker.component';
 import { TranslatePipe } from './pipes/translate.pipe';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
+import { PopupComponent } from './components/utils/popup/popup.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     LanguagePickerComponent,
-    TranslatePipe
+    TranslatePipe,
+    PopupComponent
   ],
   imports: [
     BrowserModule,

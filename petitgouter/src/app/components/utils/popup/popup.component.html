@@ -1,0 +1,20 @@
+<ng-template #popup>
+    <div class="background">
+        <div class="popup">
+            <div class="content">
+                <ng-content></ng-content>
+            </div>
+            <div class="bottom">
+                <button *ngIf="secondaryButton"
+                class="secondary"
+                (click)="secondaryCall()">
+                    {{ secondaryButton }}
+                </button>
+                <button class="primary" 
+                (click)="primaryCall()">
+                    {{ primaryButton }}
+                </button>
+            </div>
+        </div>
+    </div>
+</ng-template>
