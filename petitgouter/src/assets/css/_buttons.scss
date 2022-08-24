@@ -1,0 +1,32 @@
+@import './variables';
+
+button {
+    border: solid 1px;
+    border-radius: 0.25rem;
+    box-shadow: none;
+    padding: 0.25rem 0.5rem;
+
+    &.primary {
+        background-color: $primary-darker-colour;
+        border-color: $primary-darker-colour;
+        color: $white;
+    }
+
+    &.secondary {
+        background-color: $white;
+        border-color: $primary-darker-colour;
+        color: $primary-darker-colour;
+    }
+
+    &.danger {
+        background-color: $secondary-darker-colour;
+        border-color: $secondary-darker-colour;
+        color: $white;
+    }
+
+    &.warning {
+        background-color: $white;
+        border-color: $secondary-darker-colour;
+        color: $secondary-darker-colour;
+    }
+}
