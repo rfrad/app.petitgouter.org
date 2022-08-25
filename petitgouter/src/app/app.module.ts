@@ -12,14 +12,16 @@ import { environment } from 'src/environments/environment';
 import { LanguagePickerComponent } from './components/translation/language-picker/language-picker.component';
 import { TranslatePipe } from './pipes/translate.pipe';
 import { HttpClientModule } from '@angular/common/http';
-import { PopupComponent } from './components/utils/popup/popup.component'
+import { PopupComponent } from './components/utils/popup/popup.component';
+import { CheckboxComponent } from './components/forms/checkbox/checkbox.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     LanguagePickerComponent,
     TranslatePipe,
-    PopupComponent
+    PopupComponent,
+    CheckboxComponent
   ],
   imports: [
     BrowserModule,
