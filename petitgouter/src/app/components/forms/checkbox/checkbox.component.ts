@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CheckboxComponent implements OnInit {
 
+  selected: boolean
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  toggle(): void {
+    this.selected = !this.selected;
+  }
 }

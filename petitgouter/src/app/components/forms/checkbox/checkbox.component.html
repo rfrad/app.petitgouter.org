@@ -1,1 +1,13 @@
-<p>checkbox works!</p>
+<div class="checkbox">
+    <div class="description">
+        <ng-content></ng-content>
+    </div>
+    <div class="toggle">
+        <button [ngClass]="{
+            'selected': this.selected
+        }"
+        (click)="toggle()">
+            <div class="marker"></div>
+        </button>
+    </div>
+</div>

@@ -1,0 +1,52 @@
+@import 'src/assets/css/variables';
+
+$toggle-width: 4rem;
+
+.checkbox {
+    display: flex;
+    flex-direction: row;    
+
+    .description {
+        width: calc(100% - #{$toggle-width});
+    }
+
+    .toggle {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: $toggle-width;
+
+        & > button {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center;
+            width: 2.5rem;
+            height: 1rem;
+            border-radius: 0.5rem;
+            padding: 0;
+            overflow: visible;
+            background-color: $secondary-lighter-colour;
+
+            &:hover {
+                cursor: pointer;
+            }
+
+            &.selected {
+                justify-content: flex-end;
+                background-color: $primary-colour;
+            }
+
+            &:active {
+                background-color: $white;
+            }
+
+            & > .marker {
+                min-width: 1.5rem;
+                min-height: 1.5rem;
+                border-radius: 0.75rem;
+                background-color: $primary-darker-colour;
+            }
+        }
+    }
+}
