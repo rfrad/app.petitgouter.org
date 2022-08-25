@@ -14,6 +14,7 @@ import { TranslatePipe } from './pipes/translate.pipe';
 import { HttpClientModule } from '@angular/common/http';
 import { PopupComponent } from './components/utils/popup/popup.component';
 import { CheckboxComponent } from './components/forms/checkbox/checkbox.component'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,8 @@ import { CheckboxComponent } from './components/forms/checkbox/checkbox.componen
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
     // ngrx related imports
     StoreModule.forRoot(reducers, {}),
     StoreDevtoolsModule.instrument({

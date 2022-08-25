@@ -6,7 +6,8 @@
         <button [ngClass]="{
             'selected': this.selected
         }"
-        (click)="toggle()">
+        (click)="toggle()"
+        [disabled]="disabled">
             <div class="marker"></div>
         </button>
     </div>

@@ -1,20 +1,58 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
   selector: 'app-checkbox',
   templateUrl: './checkbox.component.html',
-  styleUrls: ['./checkbox.component.scss']
+  styleUrls: ['./checkbox.component.scss'],
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      multi: true,
+      useExisting: CheckboxComponent
+    }
+  ]
 })
-export class CheckboxComponent implements OnInit {
+export class CheckboxComponent implements ControlValueAccessor {
 
-  selected: boolean
+  public selected: boolean
+  private onChange = (isSelected: boolean) => {};
+  private onTouched = () => {};
+  private touched = false;
+
+  @Input()
+  public disabled = false;
 
   constructor() { }
 
-  ngOnInit(): void {
+  public writeValue(isSelected: any): void {
+    this.selected = !!isSelected
   }
 
-  toggle(): void {
-    this.selected = !this.selected;
+  public registerOnChange(onChange: any): void {
+    this.onChange = onChange;
+  }
+
+  public registerOnTouched(onTouched: any): void {
+    this.onTouched = onTouched;
+  }
+
+  public setDisabledState(disabled: boolean) {
+    this.disabled = disabled;
+  }
+
+  public toggle(): void {
+    this.markAsTouched();
+    if(!this.disabled) {
+      this.selected = !this.selected;
+      this.onChange(this.selected);
+    }
+  }
+
+  private markAsTouched() {
+    if (!this.touched) {
+      this.touched = true;
+      this.onTouched();
+    }
   }
 }
