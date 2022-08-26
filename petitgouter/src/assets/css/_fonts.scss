@@ -24,10 +24,17 @@ div, p {
     font-size: 1rem;
 }
 
+.content {
+    & > *:not(:last-child) {
+        margin: 0;
+        padding: 0 0 0.8rem;
+    }
+}
+
 h1, h2, h3, h4, h5, h6, p {
     margin: 0;
     padding: 0;
     &:not(:last-child) {
-        padding-bottom: 0.8rem;
+        padding-bottom: 0.5rem;
     }
 }
