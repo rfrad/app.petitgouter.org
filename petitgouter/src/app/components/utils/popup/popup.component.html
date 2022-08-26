@@ -8,11 +8,11 @@
                 <button *ngIf="secondaryButton"
                 class="secondary"
                 (click)="secondaryCall()">
-                    {{ secondaryButton }}
+                    {{ secondaryButton | translate | async }}
                 </button>
                 <button class="primary" 
                 (click)="primaryCall()">
-                    {{ primaryButton }}
+                    {{ primaryButton | translate | async }}
                 </button>
             </div>
         </div>
