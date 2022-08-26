@@ -1,4 +1,14 @@
 {
+    "button:select-all": "Select all",
+    "button:only-selected": "Only my choices",
     "welcome": "Welcome!",
-    "what_we_do": "We help developers start their Angular application. We have already set up basic services such as translation or cookie management. Now, over to you!"
+    "what_we_do": "We help developers start their Angular application. We have already set up basic services such as translation or cookie management. Now, over to you!",
+    "preferences:mandatory:name": "Mandatory",
+    "preferences:mandatory:description": "Data such as your identifiers. This is mendatory for you to access your own data.",
+    "preferences:preferences:name": "Preferences",
+    "preferences:preferences:description": "So you do not see this popup each time you connect!",
+    "preferences:analytics:name": "Analytics",
+    "preferences:analytics:description": "To help us understand how you use the website. This will help us optimise our web pages to make things easier for you.",
+    "preferences:marketing:name": "Marketing",
+    "preferences:marketing:description": "To get offers optimised for you." 
 }
