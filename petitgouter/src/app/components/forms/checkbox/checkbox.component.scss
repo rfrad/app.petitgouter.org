@@ -2,9 +2,16 @@
 
 $toggle-width: 4rem;
 
+:host {
+    display: block;
+}
+
 .checkbox {
     display: flex;
-    flex-direction: row;    
+    flex-direction: row;
+    border: solid 1px;
+    border-radius: 0.5rem;
+    padding: 1rem;
 
     .description {
         width: calc(100% - #{$toggle-width});
