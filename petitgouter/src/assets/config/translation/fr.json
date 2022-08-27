@@ -3,12 +3,13 @@
     "button:only-selected": "Seulement ma selection",
     "welcome": "Bienvenu(e)!",
     "what_we_do": "Nous aidons les développeurs à commencer leur application Angular. Nous avons déjà développé les services de base tels la traduction ou la gestion des cookies. Maintenant, à vous de jouer!",
+    "preferences:description": "Lorsque vous naviguez sur notre site internet, nous pouvons être ammenés à utiiser des cookies. Vous trouverez ci dessous dans quel context nous pourrions les utiliser.",
     "preferences:mandatory:name": "Fonctionnels",
     "preferences:mandatory:description": "Des données telles vos identifiants. Ceci est nécessaire pour accéder à vos propres données.",
     "preferences:preferences:name": "Préférences",
-    "preferences:preferences:description": "Pour ne pas avoir cette fenêtre à chaque fois que vous vous connecté(e)!",
+    "preferences:preferences:description": "Pour ne pas avoir cette fenêtre à chaque fois que vous vous connectez!",
     "preferences:analytics:name": "Analytiques",
-    "preferences:analytics:description": "Pour nous permettre de mieux comprendre comment vous utilisez nous site internet. Cela nous permettra d'optimiser nos pages pour vous simplifier la vie.",
+    "preferences:analytics:description": "Pour nous permettre de mieux comprendre comment vous utilisez notre site internet. Ces données anonymes nous permettront d'optimiser nos pages pour vous simplifier la vie.",
     "preferences:marketing:name": "Marketing",
     "preferences:marketing:description": "Pour avoir accès à des offres optimisées pour vous."
 }

@@ -33,6 +33,7 @@
         primaryButton="button:select-all"
         (primaryAction)="saveAll()">
     <div class="content">
+        <p>{{ 'preferences:description' | translate | async }}</p>
         <app-checkbox *ngFor="let preferenceField of preferenceFields" 
                 [disabled]="!preferenceField.updatable" 
                 [formControlName]="preferenceField.preference">
