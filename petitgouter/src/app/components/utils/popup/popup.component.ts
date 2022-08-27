@@ -10,6 +10,9 @@ export class PopupComponent {
 
   @ViewChild('popup', { static: true })
   popup: TemplateRef<any>;
+
+  @Input('title')
+  title: TemplateRef<any>
   
   @Input('primaryButton')
   primaryButton: string = 'VALIDACIÓN';

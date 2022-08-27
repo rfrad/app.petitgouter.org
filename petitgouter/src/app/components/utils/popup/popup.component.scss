@@ -21,9 +21,23 @@
         min-width: 60%;
         margin: 2rem;
         max-height: calc(100% - 4rem); // 4rem = 2 * margin
+        overflow: hidden;
 
         & > * {
             padding: 1rem;
+        }
+
+        .popup-title {
+            flex-grow: 0;
+            background-color: $primary-dark-colour;
+            color: $secondary-lighter-colour;
+            
+            & > * {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
         }
 
         .popup-content {

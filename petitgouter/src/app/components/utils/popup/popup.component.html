@@ -1,6 +1,11 @@
 <ng-template #popup>
     <div class="background">
         <div class="popup">
+            <div *ngIf="title" class="popup-title">
+                <div>
+                    <ng-container *ngTemplateOutlet="title"></ng-container>
+                </div>
+            </div>
             <div class="popup-content content">
                 <ng-content></ng-content>
             </div>
