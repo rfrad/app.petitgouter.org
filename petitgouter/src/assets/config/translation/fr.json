@@ -3,6 +3,7 @@
     "button:only-selected": "Seulement ma selection",
     "welcome": "Bienvenu(e)!",
     "what_we_do": "Nous aidons les développeurs à commencer leur application Angular. Nous avons déjà développé les services de base tels la traduction ou la gestion des cookies. Maintenant, à vous de jouer!",
+    "preferences:title": "Préférences",
     "preferences:description": "Lorsque vous naviguez sur notre site internet, nous pouvons être ammenés à utiiser des cookies. Vous trouverez ci dessous dans quel context nous pourrions les utiliser.",
     "preferences:mandatory:name": "Fonctionnels",
     "preferences:mandatory:description": "Des données telles vos identifiants. Ceci est nécessaire pour accéder à vos propres données.",

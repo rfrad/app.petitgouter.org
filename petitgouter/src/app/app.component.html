@@ -27,7 +27,15 @@
   [ngTemplateOutletContext]="layer.context">
 </ng-container>
 
+<ng-template #popupTitle>
+    <div>
+        <h4>{{ 'preferences:title' | translate | async }}</h4>
+    </div>
+    <app-language-picker></app-language-picker>
+</ng-template>
+
 <app-popup [formGroup]="form" 
+        [title]="popupTitle"
         secondaryButton="button:only-selected" 
         (secondaryAction)="saveSelected()"
         primaryButton="button:select-all"

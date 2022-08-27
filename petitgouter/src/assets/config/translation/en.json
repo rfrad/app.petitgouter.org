@@ -3,6 +3,7 @@
     "button:only-selected": "Only my choices",
     "welcome": "Welcome!",
     "what_we_do": "We help developers start their Angular application. We have already set up basic services such as translation or cookie management. Now, over to you!",
+    "preferences:title": "Preferences",
     "preferences:description": "When you use our website, we might use cookies. Please see below in which context we might use them.",
     "preferences:mandatory:name": "Mandatory",
     "preferences:mandatory:description": "Data such as your identifiers. This is mendatory for you to access your own data.",
