@@ -4,9 +4,10 @@ import { Store } from '@ngrx/store';
 import { first, Subscription } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { PopupComponent } from './components/utils/popup/popup.component';
-import { Preference } from './model/preferences.model';
+import { Preference, Preferences } from './model/preferences.model';
 import { LanguageCode } from './model/translation.model';
 import { OverLayerService } from './services/utils/over-layer.service';
+import { SavePreferences } from './store/preferences/preferences.actions';
 import { preferenceHasBeenSet } from './store/preferences/preferences.selectors';
 import { AppState } from './store/store.state';
 import { LoadTranslations } from './store/translation/translation.actions';
@@ -89,5 +90,21 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.subs.forEach(s => s.unsubscribe());
+  }
+
+  saveAll(): void {
+    const prefs: Preferences = <Preferences>{};
+    this.preferenceFields.forEach(field => {
+      prefs[field.preference] = true;
+    });
+    this.store.dispatch(SavePreferences({ preferences: prefs }));
+  }
+
+  saveSelected(): void {
+    const prefs: Preferences = <Preferences>{};
+    this.preferenceFields.forEach(field => {
+      prefs[field.preference] = <boolean>this.form.controls[field.preference].value;
+    });
+    this.store.dispatch(SavePreferences({ preferences: prefs }));
   }
 }

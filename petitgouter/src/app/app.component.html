@@ -27,7 +27,11 @@
   [ngTemplateOutletContext]="layer.context">
 </ng-container>
 
-<app-popup [formGroup]="form" secondaryButton="button:only-selected" primaryButton="button:select-all">
+<app-popup [formGroup]="form" 
+        secondaryButton="button:only-selected" 
+        (secondaryAction)="saveSelected()"
+        primaryButton="button:select-all"
+        (primaryAction)="saveAll()">
     <div class="content">
         <app-checkbox *ngFor="let preferenceField of preferenceFields" 
                 [disabled]="!preferenceField.updatable" 
