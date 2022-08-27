@@ -26,3 +26,14 @@
   [ngTemplateOutlet]="layer.template" 
   [ngTemplateOutletContext]="layer.context">
 </ng-container>
+
+<app-popup [formGroup]="form" secondaryButton="button:only-selected" primaryButton="button:select-all">
+    <div class="content">
+        <app-checkbox *ngFor="let preferenceField of preferenceFields" 
+                [disabled]="!preferenceField.updatable" 
+                [formControlName]="preferenceField.preference">
+            <h5>{{ preferenceField.name | translate | async }}</h5>
+            <p>{{ preferenceField.description | translate | async }}</p>
+        </app-checkbox>
+    </div>
+</app-popup>
