@@ -1,19 +1,21 @@
 <ng-template #popup>
     <div class="background">
         <div class="popup">
-            <div class="content">
+            <div class="popup-content content">
                 <ng-content></ng-content>
             </div>
-            <div class="bottom">
-                <button *ngIf="secondaryButton"
-                class="secondary"
-                (click)="secondaryCall()">
-                    {{ secondaryButton | translate | async }}
-                </button>
-                <button class="primary" 
-                (click)="primaryCall()">
-                    {{ primaryButton | translate | async }}
-                </button>
+            <div class="popup-footer">
+                <div>
+                    <button *ngIf="secondaryButton"
+                    class="secondary"
+                    (click)="secondaryCall()">
+                        {{ secondaryButton | translate | async }}
+                    </button>
+                    <button class="primary" 
+                    (click)="primaryCall()">
+                        {{ primaryButton | translate | async }}
+                    </button>
+                </div>
             </div>
         </div>
     </div>

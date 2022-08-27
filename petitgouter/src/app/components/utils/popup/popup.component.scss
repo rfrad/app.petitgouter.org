@@ -12,7 +12,9 @@
     background-color: rgb(255, 255, 255, 0.9);
 
     .popup {
-        overflow-y: auto;
+        display: flex;
+        flex: auto;
+        flex-direction: column; 
         border: solid 1px $primary-darker-colour;
         border-radius: 1rem;
         background-color: $white;
@@ -24,14 +26,24 @@
             padding: 1rem;
         }
 
-        .bottom {
-            display: flex;
-            flex-direction: row;
-            justify-content: flex-end;
+        .popup-content {
+            flex-grow: 1;
+            overflow-y: scroll;
+        }
+
+        .popup-footer {
+            flex-grow: 0;
             border-top: solid 1px $primary-darker-colour;
 
-            & > *:not(:last-child) {
-                margin-right: 1rem;
+            & > * {
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-end;
+
+                & > *:not(:last-child) {
+                    margin-right: 1rem;
+                }
+
             }
         }
     }
