@@ -1,4 +1,4 @@
-name: Test, build code and deploy to app 0.2.X
+name: Test, build code and deploy to app 0.3.X
 # T: push on master
 on: [push]
 jobs:
