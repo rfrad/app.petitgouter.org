@@ -5,6 +5,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { Store } from '@ngrx/store';
 import { BehaviorSubject, from } from 'rxjs';
 import { AppComponent } from './app.component';
+import { PopupComponent } from './components/utils/popup/popup.component';
 import { Preference } from './model/preferences.model';
 import { MockTranslatePipe } from './pipes/mock.pipe.spec';
 
@@ -35,6 +36,7 @@ describe('AppComponent', () => {
     }).compileComponents();
     const fixture = TestBed.createComponent(AppComponent);
     app = fixture.componentInstance;
+    fixture.detectChanges();
     formBuilder = TestBed.inject(FormBuilder);
   });
 
@@ -71,21 +73,23 @@ describe('AppComponent', () => {
   });
 
   describe('preference popup', () => {
-    // it('should be called when the preferences have not been set', () => {
-    //   // Given the preferences has NOT already been set
-    //   const popupComponent = jasmine.createSpyObj('PopupComponent', ['open']);
-    //   app.preferencePopup = popupComponent;
+    it('should be called when the preferences have not been set', () => {
+      // Given the preferences has NOT already been set
+      const popupComponent = { open: () => {} } as PopupComponent
+      spyOn(popupComponent, 'open');
+      app.preferencePopup = popupComponent;
 
-    //   // When the preference is NOT set
-    //   preferencePublisher.next(false)
+      // When the preference is NOT set
+      preferencePublisher.next(false)
 
-    //   // Then the popup should open
-    //   expect(popupComponent.open).toHaveBeenCalled();
-    // });
+      // Then the popup should open
+      expect(popupComponent.open).toHaveBeenCalled();
+    });
     
     it('should NOT be called when the preferences have been set', () => {
       // Given the preferences has already been set
-      const popupComponent = jasmine.createSpyObj('PopupComponent', ['open']);
+      const popupComponent = { open: () => {} } as PopupComponent
+      spyOn(popupComponent, 'open');
       app.preferencePopup = popupComponent;
 
       // When the preference is set
