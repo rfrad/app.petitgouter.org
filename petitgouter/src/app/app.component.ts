@@ -1,5 +1,6 @@
 import { AfterViewInit, Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { TranslateService } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { PreferencePopupComponent } from './components/preferences/preference-popup/preference-popup.component';
@@ -24,8 +25,11 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
 
   constructor(
     private store: Store<AppState>,
-    readonly overlayerService: OverLayerService
-  ){}
+    readonly overlayerService: OverLayerService,
+    translate: TranslateService
+  ){
+    translate.setDefaultLang(LanguageCode.en);
+  }
 
   ngOnInit(): void {
     this.store.dispatch(LoadTranslations({ code: LanguageCode.fr }));
