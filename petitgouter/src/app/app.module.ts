@@ -15,6 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { PopupComponent } from './components/utils/popup/popup.component';
 import { CheckboxComponent } from './components/forms/checkbox/checkbox.component'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { PreferencePopupComponent } from './components/preferences/preference-popup/preference-popup.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     LanguagePickerComponent,
     TranslatePipe,
     PopupComponent,
-    CheckboxComponent
+    CheckboxComponent,
+    PreferencePopupComponent
   ],
   imports: [
     BrowserModule,
