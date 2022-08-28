@@ -10,7 +10,6 @@ import { reducers } from './store/store.reducers';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from 'src/environments/environment';
 import { LanguagePickerComponent } from './components/translation/language-picker/language-picker.component';
-import { TranslatePipe } from './pipes/translate.pipe';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { PopupComponent } from './components/utils/popup/popup.component';
 import { CheckboxComponent } from './components/forms/checkbox/checkbox.component'
@@ -28,7 +27,6 @@ export function HttpLoaderFactory(http: HttpClient) {
   declarations: [
     AppComponent,
     LanguagePickerComponent,
-    // TranslatePipe,
     PopupComponent,
     CheckboxComponent,
     PreferencePopupComponent
