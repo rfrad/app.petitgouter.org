@@ -18,7 +18,8 @@ import { PreferencePopupComponent } from './components/preferences/preference-po
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
-// AoT requires an exported function for factories
+// Use github documentation for setup:
+// https://github.com/ngx-translate/core
 export function HttpLoaderFactory(http: HttpClient) {
     return new TranslateHttpLoader(http, './assets/config/translation/', '.json');
 }
