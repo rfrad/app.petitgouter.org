@@ -11,17 +11,24 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from 'src/environments/environment';
 import { LanguagePickerComponent } from './components/translation/language-picker/language-picker.component';
 import { TranslatePipe } from './pipes/translate.pipe';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { PopupComponent } from './components/utils/popup/popup.component';
 import { CheckboxComponent } from './components/forms/checkbox/checkbox.component'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PreferencePopupComponent } from './components/preferences/preference-popup/preference-popup.component';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
+// AoT requires an exported function for factories
+export function HttpLoaderFactory(http: HttpClient) {
+    return new TranslateHttpLoader(http, './assets/config/translation/', '.json');
+}
 
 @NgModule({
   declarations: [
     AppComponent,
     LanguagePickerComponent,
-    TranslatePipe,
+    // TranslatePipe,
     PopupComponent,
     CheckboxComponent,
     PreferencePopupComponent
@@ -38,7 +45,14 @@ import { PreferencePopupComponent } from './components/preferences/preference-po
       logOnly: !environment.debugStore, // Restrict extension to log-only mode
     }),
     EffectsModule.forRoot([TranslationEffects, PreferencesEffects]),
-    HttpClientModule
+    HttpClientModule,
+    TranslateModule.forRoot({
+        loader: {
+            provide: TranslateLoader,
+            useFactory: HttpLoaderFactory,
+            deps: [HttpClient]
+        }
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
