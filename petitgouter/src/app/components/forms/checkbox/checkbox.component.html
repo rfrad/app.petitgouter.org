@@ -4,7 +4,8 @@
     </div>
     <div class="toggle">
         <button [ngClass]="{
-            'selected': this.selected
+            'selected': this.selected,
+            'disabled': this.disabled
         }"
         (click)="toggle()"
         [disabled]="disabled">

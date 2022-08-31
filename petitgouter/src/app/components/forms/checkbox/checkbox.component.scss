@@ -54,6 +54,15 @@ $toggle-width: 4rem;
                 border-radius: 0.75rem;
                 background-color: $primary-darker-colour;
             }
+
+            &.disabled {
+                background-color: $grey-colour;
+                border-color: $grey-darker-colour;
+
+                & > .marker {
+                    background-color: $grey-dark-colour;
+                }
+            }
         }
     }
 }
