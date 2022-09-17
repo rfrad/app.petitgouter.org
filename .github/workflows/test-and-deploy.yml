@@ -1,90 +1,10 @@
-name: Test, build code and deploy to app 0.4.X
-# T: push on master
-on: [push]
-jobs:
-  # Checkout:
-  # The purpose of this job is to download the code and create an artefact 
-  # that can be reused by the next steps.
-  Checkout:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check out code
-        uses: actions/checkout@v2
-        # Auto-generates APP_VERSION in environment files
-      - run: sed -i -e "s|APP_VERSION|$(echo $GITHUB_WORKFLOW | sed -En 's/.*([0-9]+\.[0-9]+\.)X.*/\1/p')$GITHUB_RUN_NUMBER|g" petitgouter/src/environments/environment*.ts
-      - name: Create an artefact from the code
-        uses: actions/upload-artifact@v2
-        with:
-          name: application_code
-          path: petitgouter/*
-
-  # A: Unit tests
-  # This job run the unit tests on the application.
-  Test:
-    runs-on: ubuntu-latest
-    needs: Checkout
-    steps:
-      - name: Download code
-        uses: actions/download-artifact@v2
-        with:
-          name: application_code
-      - name: Install Node.js
-        uses: actions/setup-node@v2.2.0
-      - run: npm install
-      - run: echo "Run tests"
-      - run: npm run test-cicd
-
-  # A: Build all the environments
-  # Once the tests are successful, this job builds the 
-  ## application for all the environment
-  Build:
-    strategy:
-      matrix:
-        environment: [ dev-app, test-app, app ]
-    runs-on: ubuntu-latest
-    needs: Test
-    steps:
-      - name: Download code
-        uses: actions/download-artifact@v2
-        with:
-          name: application_code
-      - name: Install Node.js
-        uses: actions/setup-node@v2.2.0
-      - run: npm install
-      - run: npm run build-${{ matrix.environment }}
-      - name: Artifact build
-        uses: actions/upload-artifact@v2
-        with:
-          name: build-${{ matrix.environment }}
-          path: dist/${{ matrix.environment }}
-
-  # A: Deploy to the different environments
-  # Once all the builds are successful, this job downloads 
-  # the created artefact and deploys it to AWS. Once 
-  # the deployment is done, it will aso invalidate the 
-  # CloudFront distribution to make sure changes are
-  # propagated 
-  Deploy:
-    strategy:
-      matrix:
-        environment: [ dev-app, test-app, app ]
-    runs-on: ubuntu-latest  
-    needs: Build
-    environment: ${{ matrix.environment }}
-    steps:
-      - name: Download code
-        uses: actions/download-artifact@v2
-        with:
-          name: build-${{ matrix.environment }}
-          path: build-directory
-      - name: Setup AWS CLI
-        uses: aws-actions/configure-aws-credentials@v1
-        with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: eu-west-1
-      - run: echo "Deploy to S3."
-      - run: aws s3 sync --delete --exact-timestamps build-directory s3://${{ secrets.AWS_S3_BUCKET }}
-      - run: echo "Invalidate CloudFront distribution."
-      - run: aws cloudfront create-invalidation --distribution-id ${{ secrets.AWS_CLOUDFRONT_DISTRIBUTION_ID }} --paths "/*"
-      - run: echo "Deployment status - ${{ job.status }}."
+    name: Test, build code and deploy my-domain.org
+    on: [push]
+    jobs:
+      Checkout-code:
+        runs-on: ubuntu-latest
+        steps:
+          - run: echo "Checkout the code from ${{ github.repository }}."
+          - name: Check out repository code
+            uses: actions/checkout@v2
+          - run: echo "Checkout status - ${{ job.status }}."
