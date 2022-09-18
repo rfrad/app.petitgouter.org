@@ -1,10 +1,31 @@
-    name: Test, build code and deploy my-domain.org
-    on: [push]
-    jobs:
-      Checkout-code:
-        runs-on: ubuntu-latest
-        steps:
-          - run: echo "Checkout the code from ${{ github.repository }}."
-          - name: Check out repository code
-            uses: actions/checkout@v2
-          - run: echo "Checkout status - ${{ job.status }}."
+name: Test, build code and deploy my-domain.org
+on: [push]
+jobs:
+  # Checkout:
+  # The purpose of this job is to download the code and create an artefact 
+  # that can be reused by the next steps.
+  Checkout:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v3
+      - name: Create an artefact from the code
+        uses: actions/upload-artifact@v3
+        with:
+          name: application_code
+          path: petitgouter/* # Please update this based on the root of your SPA project
+  # A: Unit tests
+  # This job run the unit tests on the application.
+  Test:
+    runs-on: ubuntu-latest
+    needs: Checkout
+    steps:
+      - name: Download code
+        uses: actions/download-artifact@v3
+        with:
+          name: application_code
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+      - run: npm install
+      - run: echo "Run tests"
+      - run: npm run test-cicd
