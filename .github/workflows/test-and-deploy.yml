@@ -18,7 +18,7 @@ jobs:
   # This job run the unit tests on the application.
   Test:
     runs-on: ubuntu-latest
-    needs: Checkout
+    needs: Checkout # Only test the code if the checkout passed
     steps:
       - name: Download code
         uses: actions/download-artifact@v3
@@ -29,3 +29,26 @@ jobs:
       - run: npm install
       - run: echo "Run tests"
       - run: npm run test-cicd
+  # A: Build all the environments
+  # Once the tests are successful, this job builds the 
+  # application for all the environment
+  Build:
+    strategy: # Run this job once for each of the env_to_build
+      matrix:
+        env_to_build: [ dev-app, test-app, app ]
+    runs-on: ubuntu-latest
+    needs: Test # Only run this step if the unit tests pass
+    steps:
+      - name: Download code
+        uses: actions/download-artifact@v3
+        with:
+          name: application_code
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+      - run: npm install
+      - run: npm run build-${{ matrix.env_to_build }}
+      - name: Artifact build
+        uses: actions/upload-artifact@v3
+        with:
+          name: build-${{ matrix.env_to_build }}
+          path: dist/${{ matrix.env_to_build }}
