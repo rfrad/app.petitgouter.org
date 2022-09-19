@@ -27,7 +27,6 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v3
       - run: npm install
-      - run: echo "Run tests"
       - run: npm run test-cicd
   # A: Build all the environments
   # Once the tests are successful, this job builds the 
