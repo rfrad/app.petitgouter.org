@@ -14,6 +14,7 @@ jobs:
         with:
           name: application_code
           path: petitgouter/* # Please update this based on the root of your SPA project
+          
   # A: Unit tests
   # This job run the unit tests on the application.
   Test:
@@ -28,6 +29,7 @@ jobs:
         uses: actions/setup-node@v3
       - run: npm install
       - run: npm run test-cicd
+
   # A: Build all the environments
   # Once the tests are successful, this job builds the 
   # application for all the environment
@@ -51,6 +53,7 @@ jobs:
         with:
           name: build-${{ matrix.env_to_build }}
           path: dist/${{ matrix.env_to_build }}
+
   # A: Deploy to the different environments
   # Once all the builds are successful, this job downloads 
   # the created artefact and deploys it to AWS. Once 
