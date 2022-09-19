@@ -14,7 +14,7 @@ jobs:
         with:
           name: application_code
           path: petitgouter/* # Please update this based on the root of your SPA project
-          
+
   # A: Unit tests
   # This job run the unit tests on the application.
   Test:
