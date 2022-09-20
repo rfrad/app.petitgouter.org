@@ -11,6 +11,11 @@
     align-items: center;
     background-color: rgb(255, 255, 255, 0.9);
 
+    .popup-wrapper {
+        display: inline-block;
+        min-width: 60%;
+    }
+
     .popup {
         display: flex;
         flex: auto;
@@ -18,7 +23,6 @@
         border: solid 1px $primary-darker-colour;
         border-radius: 1rem;
         background-color: $white;
-        min-width: 60%;
         margin: 2rem;
         max-height: calc(100% - 4rem); // 4rem = 2 * margin
         overflow: hidden;
