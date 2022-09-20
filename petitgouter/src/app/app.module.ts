@@ -17,6 +17,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PreferencePopupComponent } from './components/preferences/preference-popup/preference-popup.component';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { PrivacyPolicyPopupComponent } from './components/preferences/privacy-policy-popup/privacy-policy-popup.component';
 
 // Use github documentation for setup:
 // https://github.com/ngx-translate/core
@@ -30,7 +31,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     LanguagePickerComponent,
     PopupComponent,
     CheckboxComponent,
-    PreferencePopupComponent
+    PreferencePopupComponent,
+    PrivacyPolicyPopupComponent
   ],
   imports: [
     BrowserModule,

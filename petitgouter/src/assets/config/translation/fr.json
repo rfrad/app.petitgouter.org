@@ -12,5 +12,8 @@
     "preferences:analytics:name": "Analytiques",
     "preferences:analytics:description": "Pour nous permettre de mieux comprendre comment vous utilisez notre site internet. Ces données anonymes nous permettront d'optimiser nos pages pour vous simplifier la vie.",
     "preferences:marketing:name": "Marketing",
-    "preferences:marketing:description": "Pour avoir accès à des offres optimisées pour vous."
+    "preferences:marketing:description": "Pour avoir accès à des offres optimisées pour vous.",
+    "popup:close": "Fermer",
+    "privacy-policy:open": "Lire la politique de confidentialité.",
+    "privacy-policy:title": "Politique de confidentialité"
 }
