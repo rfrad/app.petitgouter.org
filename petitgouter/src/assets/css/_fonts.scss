@@ -1,3 +1,5 @@
+@import './variables';
+
 * {
     font-family: Calibri, Verdana, Geneva, Tahoma, sans-serif;
 }
@@ -36,5 +38,16 @@ h1, h2, h3, h4, h5, h6, p {
     padding: 0;
     &:not(:last-child) {
         padding-bottom: 0.5rem;
+    }
+}
+
+a {
+    color: $primary-darker-colour;
+    text-decoration: underline;
+
+    &:hover {
+        cursor: pointer;
+        color: $primary-dark-colour;
+        text-decoration: none;
     }
 }
