@@ -3,7 +3,7 @@
 <app-popup [title]="popupTitle"
         primaryButton="popup:close"
         (primaryAction)="close()">
-    Privacy policy
+    <ng-template #privacyPolicyContent></ng-template>
 </app-popup>
 
 <ng-template #popupTitle>
