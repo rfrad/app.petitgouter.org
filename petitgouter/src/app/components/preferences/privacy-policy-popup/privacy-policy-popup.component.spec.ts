@@ -28,9 +28,6 @@ describe('PrivacyPolicyPopupComponent', () => {
             }
           }
         })
-      ],
-      imports: [
-        LegalEnglishModule
       ]
     })
     .compileComponents();
