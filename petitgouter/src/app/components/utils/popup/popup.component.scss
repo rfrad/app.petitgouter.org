@@ -12,8 +12,10 @@
     background-color: rgb(255, 255, 255, 0.9);
 
     .popup-wrapper {
-        display: inline-block;
+        display: inline-flex;
         min-width: 60%;
+        height: 100%;
+        align-items: center;
     }
 
     .popup {
