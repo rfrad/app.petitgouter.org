@@ -1,4 +1,4 @@
-name: Test, build code and deploy to app 0.4.X
+name: Test, build code and deploy to app 0.5.X
 on: [push]
 jobs:
   # Checkout:
