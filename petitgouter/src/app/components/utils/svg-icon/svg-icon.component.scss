@@ -1,0 +1,16 @@
+:host {
+    display: inline-block;
+    height: 2rem;
+    width: 2rem;
+    overflow: hidden;
+
+    & svg {
+        height: 100%;
+        width: 100%;
+
+        &.primary {
+            color: green;
+            background-color: pink;
+        }
+    }
+}

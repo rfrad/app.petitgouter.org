@@ -18,6 +18,7 @@ import { PreferencePopupComponent } from './components/preferences/preference-po
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { PrivacyPolicyPopupComponent } from './components/preferences/privacy-policy-popup/privacy-policy-popup.component';
+import { SvgIconComponent } from './components/utils/svg-icon/svg-icon.component';
 
 // Use github documentation for setup:
 // https://github.com/ngx-translate/core
@@ -32,7 +33,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     PopupComponent,
     CheckboxComponent,
     PreferencePopupComponent,
-    PrivacyPolicyPopupComponent
+    PrivacyPolicyPopupComponent,
+    SvgIconComponent
   ],
   imports: [
     BrowserModule,
