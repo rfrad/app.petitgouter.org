@@ -1,12 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-
-export enum IconClass {
-  primary = 'primary',
-  secondary = 'secondary'
-}
-
-// This component has been inspired by a stackoverflow post:
-// https://stackoverflow.com/questions/53066823/how-do-i-import-svg-from-file-to-a-component-in-angular-5#answer-71229423
+import { SvgIcon } from 'src/app/model/utils/svg-icon.model';
+import { SvgIconService } from 'src/app/services/utils/svg-icon.service';
 
 @Component({
   selector: 'app-svg-icon',
@@ -15,12 +9,15 @@ export enum IconClass {
 })
 export class SvgIconComponent implements OnInit {
   
-  @Input() icon!: string;
-  @Input() importance?: IconClass = IconClass.primary;
+  @Input() icon!: SvgIcon;
+  location: string;
 
-  constructor() { }
+  constructor(
+    private svgLoader: SvgIconService
+  ) { }
 
   ngOnInit(): void {
+    this.location = this.svgLoader.getSvgFileFor(this.icon);
   }
 
 }
