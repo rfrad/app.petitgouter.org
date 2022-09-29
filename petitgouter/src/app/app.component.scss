@@ -9,6 +9,16 @@
     background-color: $primary-dark-colour;
     color: $secondary-lighter-colour;
     padding: 0.5rem 1rem;
+
+    .header-menu {
+        display: inline-flex;
+        flex-direction: row;
+        align-items: center;
+
+        & > *:not(:last-child) {
+            margin-right: 0.5rem;
+        }
+    }
 }
 
 .main-content {

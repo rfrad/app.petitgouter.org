@@ -5,6 +5,7 @@ import { Subscription } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { PreferencePopupComponent } from './components/preferences/preference-popup/preference-popup.component';
 import { LanguageCode } from './model/translation.model';
+import { SvgIcon } from './model/utils/svg-icon.model';
 import { OverLayerService } from './services/utils/over-layer.service';
 import { preferenceHasBeenSet } from './store/preferences/preferences.selectors';
 import { AppState } from './store/store.state';
@@ -16,6 +17,7 @@ import { LoadTranslations } from './store/translation/translation.actions';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
+  SvgIcon = SvgIcon;
   appVersion = environment.appVersion;
 
   private subs: Subscription[] = [];
