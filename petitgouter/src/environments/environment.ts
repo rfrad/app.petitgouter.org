@@ -8,6 +8,12 @@ export const environment = {
   apiServer: 'dev-api.petitgouter.org', // Our localhost application will use our dev backend
   appVersion: 'APP_VERSION',
   debugStore: true,
+  auth: {
+    auth0: {
+      domain: 'dev-petitgouter.eu.auth0.com',
+      clientId: '0PYHybjvttG59KuSO9JiWI6zqJ3sKFTJ'
+    }
+  }
 };
 
 /*
