@@ -66,6 +66,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     }),
 
     // Import the module into the application, with configuration
+    // This is following tutorial:
+    // https://auth0.com/docs/quickstart/spa/angular#install-the-auth0-angular-sdk
     AuthModule.forRoot({
       domain: environment.auth.auth0.domain,
       clientId: environment.auth.auth0.clientId
