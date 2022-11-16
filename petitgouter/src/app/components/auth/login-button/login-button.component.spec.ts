@@ -1,4 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { SvgIconComponent } from '../../utils/svg-icon/svg-icon.component';
+import { AuthService } from '@auth0/auth0-angular';
 
 import { LoginButtonComponent } from './login-button.component';
 
@@ -8,7 +10,13 @@ describe('LoginButtonComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LoginButtonComponent ]
+      declarations: [ 
+        LoginButtonComponent,
+        SvgIconComponent 
+      ],
+      providers: [
+        { provide: AuthService, useValue: { loginWithRedirect: () => {} }}
+      ]
     })
     .compileComponents();
 
