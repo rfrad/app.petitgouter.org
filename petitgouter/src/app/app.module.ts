@@ -19,6 +19,7 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { PrivacyPolicyPopupComponent } from './components/preferences/privacy-policy-popup/privacy-policy-popup.component';
 import { SvgIconComponent } from './components/utils/svg-icon/svg-icon.component';
+import { AuthModule } from '@auth0/auth0-angular';
 
 // Use github documentation for setup:
 // https://github.com/ngx-translate/core
@@ -41,6 +42,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+
     // ngrx related imports
     StoreModule.forRoot(reducers, {
       runtimeChecks: {
@@ -54,12 +56,19 @@ export function HttpLoaderFactory(http: HttpClient) {
     }),
     EffectsModule.forRoot([TranslationEffects, PreferencesEffects]),
     HttpClientModule,
+
     TranslateModule.forRoot({
         loader: {
             provide: TranslateLoader,
             useFactory: HttpLoaderFactory,
             deps: [HttpClient]
         }
+    }),
+
+    // Import the module into the application, with configuration
+    AuthModule.forRoot({
+      domain: environment.auth.auth0.domain,
+      clientId: environment.auth.auth0.clientId
     })
   ],
   providers: [],
