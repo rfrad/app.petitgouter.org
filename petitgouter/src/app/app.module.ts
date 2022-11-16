@@ -20,6 +20,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { PrivacyPolicyPopupComponent } from './components/preferences/privacy-policy-popup/privacy-policy-popup.component';
 import { SvgIconComponent } from './components/utils/svg-icon/svg-icon.component';
 import { AuthModule } from '@auth0/auth0-angular';
+import { LoginButtonComponent } from './components/auth/login-button/login-button.component';
 
 // Use github documentation for setup:
 // https://github.com/ngx-translate/core
@@ -35,7 +36,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     CheckboxComponent,
     PreferencePopupComponent,
     PrivacyPolicyPopupComponent,
-    SvgIconComponent
+    SvgIconComponent,
+    LoginButtonComponent
   ],
   imports: [
     BrowserModule,
