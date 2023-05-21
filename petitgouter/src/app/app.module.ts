@@ -72,7 +72,10 @@ export function HttpLoaderFactory(http: HttpClient) {
     // https://auth0.com/docs/quickstart/spa/angular#install-the-auth0-angular-sdk
     AuthModule.forRoot({
       domain: environment.auth.auth0.domain,
-      clientId: environment.auth.auth0.clientId
+      clientId: environment.auth.auth0.clientId,
+      authorizationParams: {
+        redirect_uri: environment.root
+      }
     })
   ],
   providers: [],

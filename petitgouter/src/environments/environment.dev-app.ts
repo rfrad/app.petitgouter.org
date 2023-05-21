@@ -1,6 +1,7 @@
 export const environment = {
     production: false,
     envName: 'dev-app',
+    root: 'https://dev-app.petitgouter.org',
     apiServer: 'dev-api.petitgouter.org',
     appVersion: 'APP_VERSION',
     debugStore: true,

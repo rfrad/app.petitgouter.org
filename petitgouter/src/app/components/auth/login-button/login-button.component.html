@@ -1,4 +1,12 @@
 <app-svg-icon 
-    [icon]="SvgIcon.login" 
-    (click)="auth.loginWithRedirect()"
+    *ngIf="auth.isAuthenticated$ | async; else loggedOut"
+    [icon]="SvgIcon.logout" 
+    (click)="auth.logout({ returnTo: env.root })"
 ></app-svg-icon>
+
+<ng-template #loggedOut>
+    <app-svg-icon
+        [icon]="SvgIcon.login" 
+        (click)="auth.loginWithRedirect()"
+    ></app-svg-icon>
+</ng-template>
