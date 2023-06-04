@@ -28,6 +28,6 @@ application and start make a difference to the word without worrying about relea
 | - An S3 bucket (per environment) to deploy the application | [Create an S3 bucket](https://github.com/rfrad/tutorials/wiki/Populate-an-AWS-environment-account-to-prepare-for-a-SPA-deployment#create-an-s3-bucket) |
 | - A ClouFront distribution | [Create a CloudFront distribution](https://github.com/rfrad/tutorials/wiki/Populate-an-AWS-environment-account-to-prepare-for-a-SPA-deployment#create-a-cloudfront-distribution) |
 | - An AWS user to deploy the SPA | [Prepare CICD user for your frontend](https://github.com/rfrad/tutorials/wiki/Populate-an-AWS-environment-account-to-prepare-for-a-SPA-deployment#prepare-cicd-user-for-your-frontend) |
-| - An Auth0 account (with 3 tenants) | [Configure an Auth0 account](https://github.com/rfrad/tutorials/wiki/Prepare-Auth0-for-a-SPA#create-new-tenant) |
-| - An Auth0 application | [Create an application](https://github.com/rfrad/tutorials/wiki/Prepare-Auth0-for-a-SPA#create-an-application) |
+| An Auth0 account (with 3 tenants) | [Configure an Auth0 account](https://github.com/rfrad/tutorials/wiki/Prepare-Auth0-for-a-SPA#create-new-tenant) |
+| An Auth0 application | [Create an application](https://github.com/rfrad/tutorials/wiki/Prepare-Auth0-for-a-SPA#create-an-application) |
 
