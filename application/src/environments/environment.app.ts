@@ -7,8 +7,8 @@ export const environment = {
     debugStore: false,
     auth: {
       auth0: {
-        domain: 'TODO',
-        clientId: 'TODO'
+        domain: 'petitgouter.eu.auth0.com',
+        clientId: 'ZWzzhytbuMIwbNKrDov8p9PZ63pdnu6p'
       }
     }
 };
