@@ -10,12 +10,12 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v3
         # Auto-generates APP_VERSION in environment files
-      - run: sed -i -e "s|APP_VERSION|$(echo $GITHUB_WORKFLOW | sed -En 's/.*([0-9]+\.[0-9]+\.)X.*/\1/p')$GITHUB_RUN_NUMBER|g" petitgouter/src/environments/environment*.ts
+      - run: sed -i -e "s|APP_VERSION|$(echo $GITHUB_WORKFLOW | sed -En 's/.*([0-9]+\.[0-9]+\.)X.*/\1/p')$GITHUB_RUN_NUMBER|g" application/src/environments/environment*.ts
       - name: Create an artefact from the code
         uses: actions/upload-artifact@v3
         with:
           name: application_code
-          path: petitgouter/*
+          path: application/*
 
   # A: Unit tests
   # This job run the unit tests on the application.
