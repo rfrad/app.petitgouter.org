@@ -18,7 +18,8 @@ import { LoadTranslations } from './store/translation/translation.actions';
 })
 export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
   SvgIcon = SvgIcon;
-  appVersion = environment.appVersion;
+  appVersion = environment.app.version;
+  appName = environment.app.name;
 
   private subs: Subscription[] = [];
 

@@ -1,6 +1,6 @@
 <div class="main-header">
     <div>
-        <h1>Petit Gouter</h1>
+        <h1>{{ appName }}</h1>
     </div>
     <div class="header-menu">
         <app-language-picker></app-language-picker>
@@ -20,7 +20,7 @@
 </div>
 
 <div class="main-footer">
-    <span>Petit Gouter version {{ appVersion }}</span>
+    <span>{{ appName }} version {{ appVersion }}</span>
 </div>
 
 <ng-container *ngFor="let layer of overlayerService.overLayers"
