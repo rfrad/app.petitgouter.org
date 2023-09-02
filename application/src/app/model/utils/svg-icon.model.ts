@@ -1,4 +1,5 @@
 export enum SvgIcon {
     login = 'login',
-    logout = 'logout'
+    logout = 'logout',
+    mainLogo = 'mainLogo'
 }
