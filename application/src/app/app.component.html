@@ -1,6 +1,9 @@
 <div class="main-header">
     <div>
-        <h1>{{ appName }}</h1>
+        <h1>
+            <app-svg-icon [icon]="SvgIcon.mainLogo"></app-svg-icon>
+            <span>{{ appName }}</span>
+        </h1>
     </div>
     <div class="header-menu">
         <app-language-picker></app-language-picker>
@@ -20,7 +23,10 @@
 </div>
 
 <div class="main-footer">
-    <span>{{ appName }} version {{ appVersion }}</span>
+    <app-svg-icon [icon]="SvgIcon.mainLogo"></app-svg-icon>
+    <span>
+        {{ appName }} version {{ appVersion }}
+    </span>
 </div>
 
 <ng-container *ngFor="let layer of overlayerService.overLayers"
