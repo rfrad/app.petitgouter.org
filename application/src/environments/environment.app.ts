@@ -3,6 +3,7 @@ export const environment = {
     envName: 'app',
     root: 'https://app.petitgouter.org',
     apiServer: 'api.petitgouter.org',
+    apiEndpoint: 'https://api.petitgouter.org',
     app: {
       version: 'APP_VERSION',
       name: 'Petitgouter'

@@ -7,6 +7,7 @@ export const environment = {
   envName: 'localhost',
   root: 'http://localhost:4200',
   apiServer: 'dev-api.petitgouter.org', // Our localhost application will use our dev backend
+  apiEndpoint: 'https://dev-api.petitgouter.org',
   app: {
     version: 'APP_VERSION',
     name: 'Petitgouter (local)'
