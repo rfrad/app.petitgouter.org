@@ -1,5 +1,9 @@
 @import 'src/assets/css/variables';
 
+:host {
+    display: flex;
+}
+
 :hover {
     cursor: pointer;
     border-radius: 0.25rem;
