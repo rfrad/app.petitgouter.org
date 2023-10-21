@@ -47,4 +47,22 @@ describe('LocalFlexDirectionDirective', () => {
     expect(fixture.nativeElement.querySelector('div').classList).not.toContain('vertical');
     expect(fixture.nativeElement.querySelector('div').classList).toContain('horizontal');
   });
+
+  it('should use the default left-to-right when no language:direction is provided', () => {
+    translateServiceMock.onLangChange.next({
+      translations: <any>{}
+    });
+    fixture.detectChanges();
+    expect(fixture.nativeElement.querySelector('div').classList).not.toContain('vertical');
+    expect(fixture.nativeElement.querySelector('div').classList).not.toContain('horizontal');
+    expect(fixture.nativeElement.querySelector('div').classList).toContain('flex-left-to-right');
+  });
+
+  it('should use the default left-to-right when no translations is provided', () => {
+    translateServiceMock.onLangChange.next(<any>{});
+    fixture.detectChanges();
+    expect(fixture.nativeElement.querySelector('div').classList).not.toContain('vertical');
+    expect(fixture.nativeElement.querySelector('div').classList).not.toContain('horizontal');
+    expect(fixture.nativeElement.querySelector('div').classList).toContain('flex-left-to-right');
+  });
 });
