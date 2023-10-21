@@ -6,7 +6,7 @@ import { TranslateService } from '@ngx-translate/core';
 
 describe('LocalFlexDirectionDirective', () => {
   @Component({
-    template: '<div appLocalFlexDirection></div>'
+    template: '<div pgLocalFlexDirection></div>'
   })
   class Wrapper {}
 

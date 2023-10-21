@@ -5,7 +5,7 @@ import { Subscription } from 'rxjs';
 const DEFAULT_LANGUAGE_DIRECTION_CLASS: string = 'left-to-right';
 
 @Directive({
-  selector: '[appLocalFlexDirection]'
+  selector: '[pgLocalFlexDirection]'
 })
 export class LocalFlexDirectionDirective implements OnInit, OnDestroy {
 
