@@ -9,7 +9,7 @@ export class LocalFlexDirectionDirective implements OnInit, OnDestroy {
 
   private sub: Subscription;
   
-  @HostBinding('class') flexClass = 'left-to-right';
+  @HostBinding('class') flexClass = 'flex-left-to-right';
 
   constructor(
     private translations: TranslateService

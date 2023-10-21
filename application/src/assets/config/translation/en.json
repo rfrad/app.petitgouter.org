@@ -1,5 +1,5 @@
 {
-    "language:direction": "left-to-right",
+    "language:direction": "flex-left-to-right",
     "button:select-all": "Select all",
     "button:only-selected": "Only my choices",
     "welcome": "Welcome!",
