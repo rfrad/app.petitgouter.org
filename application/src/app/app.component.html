@@ -1,6 +1,6 @@
 <div pgLocalFlexDirection class="main-header">
     <div>
-        <h1>
+        <h1 pgLocalTextDirection>
             <pg-svg-icon [icon]="SvgIcon.mainLogo"></pg-svg-icon>
             <span>{{ appName }}</span>
         </h1>
@@ -16,7 +16,7 @@
 <!-- This is the Angular routing we activated during the creation: -->
 <router-outlet></router-outlet>
 
-<div class="main-content">
+<div pgLocalTextDirection class="main-content">
     <p>
         {{ 'welcome' | translate }}
     </p>
@@ -25,7 +25,7 @@
     </p> 
 </div>
 
-<div class="main-footer">
+<div pgLocalTextDirection class="main-footer">
     <pg-svg-icon [icon]="SvgIcon.mainLogo"></pg-svg-icon>
     <span>
         {{ appName }} version {{ appVersion }}
