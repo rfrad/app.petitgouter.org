@@ -1,5 +1,13 @@
 @import './variables';
 
+.text-left-to-right {
+    direction: ltr;
+}
+
+.text-right-to-left {
+    direction: rtl;
+}
+
 * {
     font-family: Calibri, Verdana, Geneva, Tahoma, sans-serif;
 }
