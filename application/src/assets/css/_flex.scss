@@ -1,0 +1,9 @@
+.left-to-right {
+    display: flex;
+    flex-direction: row;
+}
+
+.right-to-left {
+    display: flex;
+    flex-direction: row-reverse;
+}
