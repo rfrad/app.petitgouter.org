@@ -12,13 +12,16 @@ describe('LocalFlexDirectionDirective', () => {
 
   const translateServiceMock = {
     onLangChange: new BehaviorSubject({ 
-      translations: { "language:direction": "vertical" }
+      translations: { "language:direction": "flat" }
     })
   };
 
   let fixture: ComponentFixture<Wrapper>;
 
   beforeEach(async () => {
+    translateServiceMock.onLangChange.next({ 
+      translations: { "language:direction": "vertical" }
+    });
     await TestBed.configureTestingModule({
       providers: [
         { provide: TranslateService, useValue: translateServiceMock },
