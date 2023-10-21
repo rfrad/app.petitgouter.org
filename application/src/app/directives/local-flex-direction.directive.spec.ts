@@ -36,7 +36,7 @@ describe('LocalFlexDirectionDirective', () => {
   });
 
   it('should have the default class when initilised', () => {
-    expect(fixture.nativeElement.querySelector('div').classList).toContain('vertical');
+    expect(fixture.nativeElement.querySelector('div').classList).toContain('flex-vertical');
   });
 
   it('should have updated the class when language direction has changed', () => {
@@ -44,8 +44,8 @@ describe('LocalFlexDirectionDirective', () => {
       translations: { "language:direction": "horizontal" }
     });
     fixture.detectChanges();
-    expect(fixture.nativeElement.querySelector('div').classList).not.toContain('vertical');
-    expect(fixture.nativeElement.querySelector('div').classList).toContain('horizontal');
+    expect(fixture.nativeElement.querySelector('div').classList).not.toContain('flex-vertical');
+    expect(fixture.nativeElement.querySelector('div').classList).toContain('flex-horizontal');
   });
 
   it('should use the default left-to-right when no language:direction is provided', () => {
@@ -53,16 +53,16 @@ describe('LocalFlexDirectionDirective', () => {
       translations: <any>{}
     });
     fixture.detectChanges();
-    expect(fixture.nativeElement.querySelector('div').classList).not.toContain('vertical');
-    expect(fixture.nativeElement.querySelector('div').classList).not.toContain('horizontal');
+    expect(fixture.nativeElement.querySelector('div').classList).not.toContain('flex-vertical');
+    expect(fixture.nativeElement.querySelector('div').classList).not.toContain('flex-horizontal');
     expect(fixture.nativeElement.querySelector('div').classList).toContain('flex-left-to-right');
   });
 
   it('should use the default left-to-right when no translations is provided', () => {
     translateServiceMock.onLangChange.next(<any>{});
     fixture.detectChanges();
-    expect(fixture.nativeElement.querySelector('div').classList).not.toContain('vertical');
-    expect(fixture.nativeElement.querySelector('div').classList).not.toContain('horizontal');
+    expect(fixture.nativeElement.querySelector('div').classList).not.toContain('flex-vertical');
+    expect(fixture.nativeElement.querySelector('div').classList).not.toContain('flex-horizontal');
     expect(fixture.nativeElement.querySelector('div').classList).toContain('flex-left-to-right');
   });
 });

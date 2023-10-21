@@ -1,5 +1,5 @@
 {
-    "language:direction": "flex-right-to-left",
+    "language:direction": "right-to-left",
     "button:select-all": "Tout selectionner",
     "button:only-selected": "Seulement ma selection",
     "welcome": "Bienvenu(e)!",
