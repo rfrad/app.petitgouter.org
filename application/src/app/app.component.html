@@ -1,14 +1,14 @@
 <div appLocalFlexDirection class="main-header">
     <div>
         <h1>
-            <app-svg-icon [icon]="SvgIcon.mainLogo"></app-svg-icon>
+            <pg-svg-icon [icon]="SvgIcon.mainLogo"></pg-svg-icon>
             <span>{{ appName }}</span>
         </h1>
     </div>
     <div appLocalFlexDirection class="header-menu">
-        <app-language-picker></app-language-picker>
+        <pg-language-picker></pg-language-picker>
         <h3>
-            <app-login-button></app-login-button>
+            <pg-login-button></pg-login-button>
         </h3>
         
     </div>
@@ -26,7 +26,7 @@
 </div>
 
 <div class="main-footer">
-    <app-svg-icon [icon]="SvgIcon.mainLogo"></app-svg-icon>
+    <pg-svg-icon [icon]="SvgIcon.mainLogo"></pg-svg-icon>
     <span>
         {{ appName }} version {{ appVersion }}
     </span>
@@ -37,4 +37,4 @@
   [ngTemplateOutletContext]="layer.context">
 </ng-container>
 
-<app-preference-popup></app-preference-popup>
+<pg-preference-popup></pg-preference-popup>

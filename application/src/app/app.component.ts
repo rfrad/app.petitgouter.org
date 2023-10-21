@@ -12,7 +12,7 @@ import { AppState } from './store/store.state';
 import { LoadTranslations } from './store/translation/translation.actions';
 
 @Component({
-  selector: 'app-root',
+  selector: 'pg-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })

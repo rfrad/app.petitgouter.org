@@ -5,7 +5,7 @@ import { AppState } from 'src/app/store/store.state';
 import { LoadTranslations } from 'src/app/store/translation/translation.actions';
 
 @Component({
-  selector: 'app-language-picker',
+  selector: 'pg-language-picker',
   templateUrl: './language-picker.component.html',
   styleUrls: ['./language-picker.component.scss']
 })

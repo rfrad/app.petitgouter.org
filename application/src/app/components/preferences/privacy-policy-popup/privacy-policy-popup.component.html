@@ -1,14 +1,14 @@
 <a (click)="open()">{{ 'privacy-policy:open' | translate }}</a>
 
-<app-popup [title]="popupTitle"
+<pg-popup [title]="popupTitle"
         primaryButton="popup:close"
         (primaryAction)="close()">
     <ng-template #privacyPolicyContent></ng-template>
-</app-popup>
+</pg-popup>
 
 <ng-template #popupTitle>
     <div>
         <h4>{{ 'privacy-policy:title' | translate }}</h4>
     </div>
-    <app-language-picker></app-language-picker>
+    <pg-language-picker></pg-language-picker>
 </ng-template>

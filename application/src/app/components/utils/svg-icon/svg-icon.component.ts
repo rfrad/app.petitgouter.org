@@ -3,7 +3,7 @@ import { SvgIcon } from 'src/app/model/utils/svg-icon.model';
 import { SvgIconService } from 'src/app/services/utils/svg-icon.service';
 
 @Component({
-  selector: 'app-svg-icon',
+  selector: 'pg-svg-icon',
   templateUrl: './svg-icon.component.html',
   styleUrls: ['./svg-icon.component.scss']
 })

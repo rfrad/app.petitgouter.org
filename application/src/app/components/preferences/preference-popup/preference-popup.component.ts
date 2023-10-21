@@ -15,7 +15,7 @@ type PreferenceForm = {
 };
 
 @Component({
-  selector: 'app-preference-popup',
+  selector: 'pg-preference-popup',
   templateUrl: './preference-popup.component.html',
   styleUrls: ['./preference-popup.component.scss']
 })

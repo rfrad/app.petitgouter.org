@@ -4,7 +4,7 @@ import { SvgIcon } from '../../../model/utils/svg-icon.model';
 import { environment } from '../../../../environments/environment';
 
 @Component({
-  selector: 'app-login-button',
+  selector: 'pg-login-button',
   templateUrl: './login-button.component.html',
   styleUrls: ['./login-button.component.scss']
 })

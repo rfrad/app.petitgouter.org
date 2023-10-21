@@ -8,7 +8,7 @@ import { SvgIconComponent } from './svg-icon.component';
 describe('SvgIconComponent', () => {
   @Component({
     selector: 'test-svg-icon-wrapper',
-    template: '<app-svg-icon [icon]="SvgIcon.login"></app-svg-icon>'
+    template: '<pg-svg-icon [icon]="SvgIcon.login"></pg-svg-icon>'
   })
   class SvgIconWrapper {
     SvgIcon = SvgIcon;

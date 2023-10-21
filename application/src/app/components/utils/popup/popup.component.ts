@@ -2,7 +2,7 @@ import { Component, EventEmitter, Input, Output, TemplateRef, ViewChild } from '
 import { OverLayerService } from 'src/app/services/utils/over-layer.service';
 
 @Component({
-  selector: 'app-popup',
+  selector: 'pg-popup',
   templateUrl: './popup.component.html',
   styleUrls: ['./popup.component.scss']
 })

@@ -7,7 +7,7 @@ import { getCurrentLanguage } from 'src/app/store/translation/translation.select
 import { PopupComponent } from '../../utils/popup/popup.component';
 
 @Component({
-  selector: 'app-privacy-policy-popup',
+  selector: 'pg-privacy-policy-popup',
   templateUrl: './privacy-policy-popup.component.html',
   styleUrls: ['./privacy-policy-popup.component.scss']
 })

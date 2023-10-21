@@ -1,4 +1,4 @@
-<app-popup [formGroup]="form" 
+<pg-popup [formGroup]="form" 
         [title]="popupTitle"
         secondaryButton="button:only-selected" 
         (secondaryAction)="saveSelected()"
@@ -6,20 +6,20 @@
         (primaryAction)="saveAll()">
     <div class="content">
         <p>{{ 'preferences:description' | translate }}</p>
-        <app-checkbox *ngFor="let preferenceField of preferenceFields" 
+        <pg-checkbox *ngFor="let preferenceField of preferenceFields" 
                 [disabled]="!preferenceField.updatable" 
                 [formControlName]="preferenceField.preference">
             <h5>{{ preferenceField.name | translate }}</h5>
             <p>{{ preferenceField.description | translate }}</p>
-        </app-checkbox>
+        </pg-checkbox>
     </div>
 
-    <app-privacy-policy-popup></app-privacy-policy-popup>
-</app-popup>
+    <pg-privacy-policy-popup></pg-privacy-policy-popup>
+</pg-popup>
 
 <ng-template #popupTitle>
     <div>
         <h4>{{ 'preferences:title' | translate }}</h4>
     </div>
-    <app-language-picker></app-language-picker>
+    <pg-language-picker></pg-language-picker>
 </ng-template>
