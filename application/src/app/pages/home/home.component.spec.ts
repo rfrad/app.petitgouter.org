@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HomeComponent } from './home.component';
+import { MockTranslatePipe } from 'src/app/pipes/mock.pipe.spec';
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
@@ -8,7 +9,10 @@ describe('HomeComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HomeComponent ]
+      declarations: [ 
+        HomeComponent,
+        MockTranslatePipe
+      ]
     })
     .compileComponents();
 
