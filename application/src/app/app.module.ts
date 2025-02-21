@@ -23,6 +23,7 @@ import { AuthModule } from '@auth0/auth0-angular';
 import { LoginButtonComponent } from './components/auth/login-button/login-button.component';
 import { LocalFlexDirectionDirective } from './directives/local-flex-direction/local-flex-direction.directive';
 import { LocalTextDirectionDirective } from './directives/local-text-direction/local-text-direction.directive';
+import { HomeComponent } from './pages/home/home.component';
 
 // Use github documentation for setup:
 // https://github.com/ngx-translate/core
@@ -41,7 +42,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     SvgIconComponent,
     LoginButtonComponent,
     LocalFlexDirectionDirective,
-    LocalTextDirectionDirective
+    LocalTextDirectionDirective,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
