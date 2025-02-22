@@ -24,6 +24,7 @@ import { LoginButtonComponent } from './components/auth/login-button/login-butto
 import { LocalFlexDirectionDirective } from './directives/local-flex-direction/local-flex-direction.directive';
 import { LocalTextDirectionDirective } from './directives/local-text-direction/local-text-direction.directive';
 import { HomeComponent } from './pages/home/home.component';
+import { UserSettingsComponent } from './pages/user-settings/user-settings.component';
 
 // Use github documentation for setup:
 // https://github.com/ngx-translate/core
@@ -43,7 +44,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     LoginButtonComponent,
     LocalFlexDirectionDirective,
     LocalTextDirectionDirective,
-    HomeComponent
+    HomeComponent,
+    UserSettingsComponent
   ],
   imports: [
     BrowserModule,
