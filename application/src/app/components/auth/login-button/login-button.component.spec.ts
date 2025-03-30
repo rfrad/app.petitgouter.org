@@ -1,8 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { SvgIconComponent } from '../../utils/svg-icon/svg-icon.component';
-import { AuthService } from '@auth0/auth0-angular';
-
+ 
 import { LoginButtonComponent } from './login-button.component';
+import { AuthenticationService } from '../../../services/authentication.service';
 
 describe('LoginButtonComponent', () => {
   let component: LoginButtonComponent;
@@ -15,7 +15,7 @@ describe('LoginButtonComponent', () => {
         SvgIconComponent 
       ],
       providers: [
-        { provide: AuthService, useValue: { loginWithRedirect: () => {} }}
+        { provide: AuthenticationService, useValue: { loginWithRedirect: () => {} }}
       ]
     })
     .compileComponents();

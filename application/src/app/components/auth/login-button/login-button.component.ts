@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { AuthService} from '@auth0/auth0-angular';
 import { SvgIcon } from '../../../model/utils/svg-icon.model';
 import { environment } from '../../../../environments/environment';
+import { AuthenticationService } from '../../../services/authentication.service';
 
 @Component({
   selector: 'pg-login-button',
@@ -13,7 +13,7 @@ export class LoginButtonComponent {
   env = environment;
   
   constructor(
-    readonly auth: AuthService
+    readonly auth: AuthenticationService
   ) { }
 
 }
