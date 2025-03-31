@@ -1,5 +1,23 @@
 # Petitgouter
 
+## Add new page
+
+- Create new page component: `npx ng g c pages\MyNewPage`
+- Add route to [àpp-routing.module.ts`](src/app/app-routing.module.ts)
+    - Either public:
+    ```
+    { path: 'my-new-page', component: MyNewPageComponent }
+    ```
+    - Or private:
+    ```
+    { path: 'my-new-page', component: MyNewPageComponent, canActivate: GUARDS }
+    ```
+
+<details>
+
+<summary>Angular default documentation</summary>
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.1.0.
 
 ## Development server
@@ -25,3 +43,5 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+</details>
