@@ -82,7 +82,7 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: eu-west-1
       - run: echo "Deploy to S3."
-      - run: aws s3 sync --delete --exact-timestamps build-directory s3://${{ secrets.AWS_S3_BUCKET }} --debug
+      - run: aws s3 sync --delete --exact-timestamps build-directory s3://${{ secrets.AWS_S3_BUCKET }}
       - run: echo "Invalidate CloudFront distribution."
       - run: aws cloudfront create-invalidation --distribution-id ${{ secrets.AWS_CLOUDFRONT_DISTRIBUTION_ID }} --paths "/*"
       - run: echo "Deployment status - ${{ job.status }}."
