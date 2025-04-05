@@ -1,18 +1,19 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
-import { Store } from '@ngrx/store';
+import { Action, Store } from '@ngrx/store';
 import { TranslateService } from '@ngx-translate/core';
 import { BehaviorSubject, from } from 'rxjs';
 import { AppComponent } from './app.component';
 import { PreferencePopupComponent } from './components/preferences/preference-popup/preference-popup.component';
 import { LanguageCode } from './model/translation.model';
 import { MockTranslatePipe } from './pipes/mock.pipe.spec';
+import { CommonAction } from './store/common/common.actions';
 
 describe('AppComponent', () => {
   let app: AppComponent;
   const mockStore = { 
-    dispatch: () => {},
+    dispatch: (_: Action) => {},
     select: (selector: any) => from(preferencePublisher)
   };
   const translateService = {
@@ -22,6 +23,7 @@ describe('AppComponent', () => {
   const preferencePublisher: BehaviorSubject<boolean> = new BehaviorSubject(true);
   beforeEach(async () => {
     spyOn(translateService, 'setDefaultLang').and.stub();
+    spyOn(mockStore, 'dispatch');
     await TestBed.configureTestingModule({
       imports: [
         RouterTestingModule
@@ -78,6 +80,14 @@ describe('AppComponent', () => {
 
       // Then the popup should NOT open
       expect(popupComponent.open).not.toHaveBeenCalled();
+    });
+  });
+
+  describe('InitialiseApplication action call', () => {
+    it('should dispatch an InitialiseApplication Action', () => {
+      expect(mockStore.dispatch).toHaveBeenCalledOnceWith({
+        type: CommonAction.INIT_APPLICATION
+      });
     });
   });
 });

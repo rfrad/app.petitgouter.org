@@ -9,7 +9,7 @@ import { SvgIcon } from './model/utils/svg-icon.model';
 import { OverLayerService } from './services/utils/over-layer.service';
 import { preferenceHasBeenSet } from './store/preferences/preferences.selectors';
 import { AppState } from './store/store.state';
-import { LoadTranslations } from './store/translation/translation.actions';
+import { InitaliseApplication } from './store/common/common.actions';
 
 @Component({
   selector: 'pg-root',
@@ -35,7 +35,7 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.store.dispatch(LoadTranslations({ code: LanguageCode.fr }));
+    this.store.dispatch(InitaliseApplication());
   }
 
   ngAfterViewInit(): void {
