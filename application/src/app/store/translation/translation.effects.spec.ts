@@ -69,11 +69,9 @@ describe('TranslationEffects', () => {
                     });
 
                     // When the action is dispatched
-                    const sub = effects.loadTranslations$.subscribe(action => {
+                    const sub = effects.loadTranslations$.subscribe(() => {
                         // Then is should use the specific language
                         expect(translateService.use).toHaveBeenCalledOnceWith(language);
-                        expect(action.type).toEqual(TranslationAction.LOAD_TRANSLATIONS_SUCCESS);
-                        expect(action.translations).toEqual({});
 
                         sub.unsubscribe();
                         done();

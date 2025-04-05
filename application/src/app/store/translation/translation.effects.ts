@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
-import { of, switchMap, tap, withLatestFrom } from "rxjs";
-import { LoadTranslations, LoadTranslationsSuccess } from "./translation.actions";
+import { tap, withLatestFrom } from "rxjs";
+import { LoadTranslations, LoadTranslationsProps } from "./translation.actions";
 import { TranslateService } from "@ngx-translate/core";
 import { Store } from "@ngrx/store";
 import { getPreference } from "../preferences/preferences.selectors";
@@ -17,22 +17,19 @@ export class TranslationEffects {
         private store: Store<AppState>,
     ) {}
 
-    loadTranslations$ = createEffect(() => 
+    loadTranslations$ = createEffect((): any => 
         this.actions$.pipe(
             ofType(LoadTranslations),
+            tap((action: LoadTranslationsProps) => {
+                this.translate.use(action.code);
+            }),
             withLatestFrom(
                 this.store.select(getPreference(Preference.preferences))
             ),
-            tap(([action, savePreferences]) => {
+            tap(([action, savePreferences]: [LoadTranslationsProps, boolean]) => {
                 if(savePreferences) {
                     localStorage.setItem('translations.languageCode', action.code);
                 }
-            }),
-            switchMap(([action, _]) => {
-                this.translate.use(action.code);
-                return of(LoadTranslationsSuccess({ 
-                    translations: {} 
-                }));
             })
         )
     );
