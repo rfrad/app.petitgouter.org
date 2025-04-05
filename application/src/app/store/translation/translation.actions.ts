@@ -8,17 +8,8 @@ export enum TranslationAction {
     LOAD_TRANSLATIONS_ERROR = "[Translation] Load error",
 }
 
+export type LoadTranslationsProps = { code: LanguageCode };
 export const LoadTranslations = createAction(
     TranslationAction.LOAD_TRANSLATIONS,
-    props<{ code: LanguageCode }>()
-)
-
-export const LoadTranslationsSuccess = createAction(
-    TranslationAction.LOAD_TRANSLATIONS_SUCCESS,
-    props<{ translations: Translations }>()
-)
-
-export const LoadTranslationsError = createAction(
-    TranslationAction.LOAD_TRANSLATIONS_ERROR,
-    props<{ error: AppError }>()
-)
+    props<LoadTranslationsProps>()
+);
