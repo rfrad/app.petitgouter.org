@@ -69,7 +69,8 @@ describe('TranslationEffects', () => {
                     });
 
                     // When the action is dispatched
-                    const sub = effects.loadTranslations$.subscribe(() => {
+                    const sub = effects.loadTranslations$.subscribe(action => {
+                        expect(action.type).toEqual(TranslationAction.LOAD_TRANSLATIONS_SUCCESS);
                         // Then is should use the specific language
                         expect(translateService.use).toHaveBeenCalledOnceWith(language);
 
@@ -92,12 +93,14 @@ describe('TranslationEffects', () => {
                 }
             });
             spyOn(localStorage, 'setItem');
+            spyOn(localStorage, 'removeItem');
 
             // When loading a new language
             const action = LoadTranslations({ code: LanguageCode.fr });
             const sub = effects.loadTranslations$.subscribe(() => {
                 // Then is should store the language in the local storage
                 expect(localStorage.setItem).toHaveBeenCalledOnceWith('translations.languageCode', LanguageCode.fr);
+                expect(localStorage.removeItem).not.toHaveBeenCalled();
                 sub.unsubscribe();
                 done();
             });
@@ -116,12 +119,14 @@ describe('TranslationEffects', () => {
                 }
             });
             spyOn(localStorage, 'setItem');
+            spyOn(localStorage, 'removeItem');
 
             // When loading a new language
             const action = LoadTranslations({ code: LanguageCode.fr });
             const sub = effects.loadTranslations$.subscribe(() => {
                 // Then is should NOT store the language in the local storage
-                expect(localStorage.setItem).not.toHaveBeenCalledOnceWith('translations.languageCode', LanguageCode.fr);
+                expect(localStorage.removeItem).toHaveBeenCalledOnceWith('translations.languageCode');
+                expect(localStorage.setItem).not.toHaveBeenCalled();
                 sub.unsubscribe();
                 done();
             });
