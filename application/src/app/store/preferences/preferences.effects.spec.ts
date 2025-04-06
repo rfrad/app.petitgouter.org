@@ -41,6 +41,7 @@ describe('TranslationEffects', () => {
             const sub = effects.savePreferences$.subscribe(action => {
                 // Then is should store the data in the localStore
                 expect(action.type).toEqual(PreferencesAction.SAVE_PREFERENCES_SUCCESS);
+                expect(action.props).toEqual({});
                 expect(localStorage.getItem('preference.hasBeenSet')).toEqual('true');
                 expect(localStorage.getItem('preference.preferences')).toEqual('true');
                 expect(localStorage.getItem('preference.analytics')).toEqual('true');
@@ -72,6 +73,7 @@ describe('TranslationEffects', () => {
             const sub = effects.savePreferences$.subscribe(action => {
                 // Then is should NOT store the data in the localStore
                 expect(action.type).toEqual(PreferencesAction.SAVE_PREFERENCES_SUCCESS);
+                expect(action.props).toEqual({});
                 expect(localStorage.getItem('preference.hasBeenSet')).toBeNull();
                 expect(localStorage.getItem('preference.preferences')).toBeNull();
                 expect(localStorage.getItem('preference.analytics')).toBeNull();

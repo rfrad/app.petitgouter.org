@@ -1,5 +1,6 @@
 import { createAction, props } from "@ngrx/store";
 import { Preferences } from "src/app/model/preferences.model";
+import { NoProps } from "../common/common.actions";
 
 export enum PreferencesAction {
     SAVE_PREFERENCES = "[Preferences] Load",
@@ -13,5 +14,5 @@ export const SavePreferences = createAction(
 
 export const SavePreferencesSuccess = createAction(
     PreferencesAction.SAVE_PREFERENCES_SUCCESS,
-    props<{ preferences: Preferences }>()
+    props<NoProps>()
 )
