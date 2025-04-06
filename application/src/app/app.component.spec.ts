@@ -2,11 +2,9 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { Action, Store } from '@ngrx/store';
-import { TranslateService } from '@ngx-translate/core';
 import { BehaviorSubject, from } from 'rxjs';
 import { AppComponent } from './app.component';
 import { PreferencePopupComponent } from './components/preferences/preference-popup/preference-popup.component';
-import { LanguageCode } from './model/translation.model';
 import { MockTranslatePipe } from './pipes/mock.pipe.spec';
 import { CommonActionType } from './store/common/common.actions';
 
@@ -16,13 +14,9 @@ describe('AppComponent', () => {
     dispatch: (_: Action) => {},
     select: (selector: any) => from(preferencePublisher)
   };
-  const translateService = {
-    setDefaultLang: (code: LanguageCode) => {}
-  }
 
   const preferencePublisher: BehaviorSubject<boolean> = new BehaviorSubject(true);
   beforeEach(async () => {
-    spyOn(translateService, 'setDefaultLang').and.stub();
     spyOn(mockStore, 'dispatch');
     await TestBed.configureTestingModule({
       imports: [
@@ -30,7 +24,6 @@ describe('AppComponent', () => {
       ],
       providers: [
         { provide: Store, useValue: mockStore },
-        { provide: TranslateService, useValue: translateService },
       ],
       declarations: [
         AppComponent,
@@ -47,12 +40,6 @@ describe('AppComponent', () => {
 
   it('should create the app', () => {
     expect(app).toBeTruthy();
-  });
-
-  describe('constructor()', () => {
-    it('should set English as default language', () => {
-      expect(translateService.setDefaultLang).toHaveBeenCalledOnceWith(LanguageCode.en);
-    });
   });
 
   describe('preference popup', () => {

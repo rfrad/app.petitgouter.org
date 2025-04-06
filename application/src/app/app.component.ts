@@ -1,10 +1,8 @@
 import { AfterViewInit, Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { TranslateService } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { PreferencePopupComponent } from './components/preferences/preference-popup/preference-popup.component';
-import { LanguageCode } from './model/translation.model';
 import { SvgIcon } from './model/utils/svg-icon.model';
 import { OverLayerService } from './services/utils/over-layer.service';
 import { preferenceHasBeenSet } from './store/preferences/preferences.selectors';
@@ -29,13 +27,10 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
   constructor(
     private store: Store<AppState>,
     readonly overlayerService: OverLayerService,
-    translate: TranslateService
-  ){
-    translate.setDefaultLang(LanguageCode.en);
-  }
+  ){}
 
   ngOnInit(): void {
-    this.store.dispatch(InitaliseApplication());
+    this.store.dispatch(InitaliseApplication({}));
   }
 
   ngAfterViewInit(): void {
