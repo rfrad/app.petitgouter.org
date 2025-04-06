@@ -1,11 +1,16 @@
 import { createAction, props } from "@ngrx/store";
 
-export enum CommonAction {
+export type CommonAction<PROPS> = {
+    type: string,
+    props: PROPS
+}
+
+export enum CommonActionType {
     INIT_APPLICATION = "[Common] Init",
 }
 
 export type NoProps = any;
 export const InitaliseApplication = createAction(
-    CommonAction.INIT_APPLICATION,
+    CommonActionType.INIT_APPLICATION,
     props<NoProps>()
 )

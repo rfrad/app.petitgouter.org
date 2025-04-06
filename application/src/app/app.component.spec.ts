@@ -8,7 +8,7 @@ import { AppComponent } from './app.component';
 import { PreferencePopupComponent } from './components/preferences/preference-popup/preference-popup.component';
 import { LanguageCode } from './model/translation.model';
 import { MockTranslatePipe } from './pipes/mock.pipe.spec';
-import { CommonAction } from './store/common/common.actions';
+import { CommonActionType } from './store/common/common.actions';
 
 describe('AppComponent', () => {
   let app: AppComponent;
@@ -86,7 +86,7 @@ describe('AppComponent', () => {
   describe('InitialiseApplication action call', () => {
     it('should dispatch an InitialiseApplication Action', () => {
       expect(mockStore.dispatch).toHaveBeenCalledOnceWith({
-        type: CommonAction.INIT_APPLICATION
+        type: CommonActionType.INIT_APPLICATION
       });
     });
   });
