@@ -30,9 +30,7 @@ export class PreferencesEffects {
                     });
                 }
 
-                return of(SavePreferencesSuccess({ 
-                    preferences: action.preferences
-                }));
+                return of(SavePreferencesSuccess({}));
             })
         )
     );

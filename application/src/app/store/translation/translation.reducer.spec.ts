@@ -1,5 +1,5 @@
 import { LanguageCode } from "src/app/model/translation.model";
-import { LoadTranslations, LoadTranslationsError, LoadTranslationsSuccess } from "./translation.actions";
+import { LoadTranslations } from "./translation.actions";
 import { translationReducer } from "./translation.reducer";
 import { TranslationState } from "./translation.state";
 
@@ -26,56 +26,6 @@ describe('translationReducer', () => {
                     name: 'HARRY POTTER'
                 },
                 languageCode: LanguageCode.en
-            });
-        });
-    });
-    
-    describe('LoadTranslationsSuccess', () => {
-        it('should update the translations', () => {
-            // Given the translations are already set up in the store
-            const oldStore: TranslationState = {
-                translations: {
-                    name: 'HARRY POTTER'
-                },
-                languageCode: LanguageCode.fr
-            }
-
-            // When reducing a LoadTranslationsSuccess action
-            const newState = translationReducer(
-                oldStore, 
-                LoadTranslationsSuccess({ translations: { newName: 'VOLDEMORT' }})
-            );
-
-            // Then it should update the translations
-            expect(newState).toEqual({
-                translations: {
-                    newName: 'VOLDEMORT'
-                },
-                languageCode: LanguageCode.fr
-            });
-        });
-    });
-    
-    describe('LoadTranslationsError', () => {
-        it('should reset the translations', () => {
-            // Given the translations are already set up in the store
-            const oldStore: TranslationState = {
-                translations: {
-                    name: 'HARRY POTTER'
-                },
-                languageCode: LanguageCode.fr
-            }
-
-            // When reducing a LoadTranslationsError action
-            const newState = translationReducer(
-                oldStore, 
-                LoadTranslationsError({ error: { message: 'OH NO!' }})
-            );
-
-            // Then it should reset the translations
-            expect(newState).toEqual({
-                translations: {},
-                languageCode: LanguageCode.fr
             });
         });
     });

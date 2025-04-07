@@ -1,24 +1,26 @@
 import { createAction, props } from "@ngrx/store";
 import { AppError } from "src/app/model/error.model";
 import { LanguageCode, Translations } from "src/app/model/translation.model";
+import { NoProps } from "../common/common.actions";
 
 export enum TranslationAction {
     LOAD_TRANSLATIONS = "[Translation] Load",
     LOAD_TRANSLATIONS_SUCCESS = "[Translation] Load success",
-    LOAD_TRANSLATIONS_ERROR = "[Translation] Load error",
+    SET_DEFAULT_LANGUAGE_SUCCESS = "[Translation] Set default language success",
 }
 
+export type LoadTranslationsProps = { code: LanguageCode };
 export const LoadTranslations = createAction(
     TranslationAction.LOAD_TRANSLATIONS,
-    props<{ code: LanguageCode }>()
-)
+    props<LoadTranslationsProps>()
+);
 
 export const LoadTranslationsSuccess = createAction(
     TranslationAction.LOAD_TRANSLATIONS_SUCCESS,
-    props<{ translations: Translations }>()
-)
+    props<NoProps>()
+);
 
-export const LoadTranslationsError = createAction(
-    TranslationAction.LOAD_TRANSLATIONS_ERROR,
-    props<{ error: AppError }>()
-)
+export const SetDefaultLanguageSuccess = createAction(
+    TranslationAction.SET_DEFAULT_LANGUAGE_SUCCESS,
+    props<NoProps>()
+);

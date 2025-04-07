@@ -7,10 +7,4 @@ export const translationReducer = createReducer(
     on(action.LoadTranslations, (state, prop) => {
         return { ...state, languageCode: prop.code }
     }),
-    on(action.LoadTranslationsSuccess, (state, prop) => {
-        return { ...state, translations: prop.translations }
-    }),
-    on(action.LoadTranslationsError, (state, _) => {
-        return { ...state, translations: {} }
-    }),
 )

@@ -6,7 +6,7 @@ import { Preferences } from "src/app/model/preferences.model";
 import { PreferencesAction, SavePreferences } from "./preferences.actions";
 import { PreferencesEffects } from "./preferences.effects";
 
-describe('TranslationEffects', () => {
+describe('PreferencesEffects', () => {
     let effects: PreferencesEffects;
     let actionPublisher: BehaviorSubject<Action>;
   
