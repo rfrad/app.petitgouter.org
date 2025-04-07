@@ -19,3 +19,8 @@ export const LoadTranslationsSuccess = createAction(
     TranslationAction.LOAD_TRANSLATIONS_SUCCESS,
     props<NoProps>()
 );
+
+export const SetDefaultLanguageSuccess = createAction(
+    TranslationAction.SET_DEFAULT_LANGUAGE_SUCCESS,
+    props<NoProps>()
+);

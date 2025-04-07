@@ -8,6 +8,7 @@ import { LoadTranslations, TranslationAction } from "./translation.actions";
 import { TranslationEffects } from "./translation.effects";
 import { MockStore, provideMockStore } from "@ngrx/store/testing";
 import { Preference } from "src/app/model/preferences.model";
+import { InitaliseApplication } from "../common/common.actions";
 
 describe('TranslationEffects', () => {
     let effects: TranslationEffects;
@@ -20,12 +21,14 @@ describe('TranslationEffects', () => {
     }
 
     const translateService = {
-        use: (code: LanguageCode) => {}
+        use: (code: LanguageCode) => {},
+        setDefaultLang: (code: LanguageCode) => {},
     }
 
     beforeEach(() => {
         actionPublisher = new BehaviorSubject(<Action>{ type: 'initForTest' });
-        spyOn(translateService, 'use').and.stub();
+        spyOn(translateService, 'use');
+        spyOn(translateService, 'setDefaultLang');
         spyOn(fileLoaderMock, 'get').and.callThrough()
         TestBed.configureTestingModule({
             providers: [{
@@ -51,6 +54,24 @@ describe('TranslationEffects', () => {
   
     it('should be created', () => {
         expect(effects).toBeTruthy();
+    });
+
+    describe('setDefaultLanguage$', () => {
+        it('should set the default language to en', done => {
+            // Given an InitaliseApplication action 
+            const action = InitaliseApplication({});
+
+            // When the action is dispatched
+            const sub = effects.setDefaultLanguage$.subscribe(action => {
+                expect(action.type).toEqual(TranslationAction.SET_DEFAULT_LANGUAGE_SUCCESS);
+                // Then is should default the language to English
+                expect(translateService.setDefaultLang).toHaveBeenCalledOnceWith(LanguageCode.en);
+
+                sub.unsubscribe();
+                done();
+            });
+            actionPublisher.next(action);
+        });
     });
 
     describe('loadTranslations$', () => {

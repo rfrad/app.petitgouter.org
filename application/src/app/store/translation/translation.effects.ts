@@ -1,12 +1,14 @@
 import { Injectable } from "@angular/core";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { of, switchMap, tap, withLatestFrom } from "rxjs";
-import { LoadTranslations, LoadTranslationsProps, LoadTranslationsSuccess } from "./translation.actions";
+import { LoadTranslations, LoadTranslationsProps, LoadTranslationsSuccess, SetDefaultLanguageSuccess } from "./translation.actions";
 import { TranslateService } from "@ngx-translate/core";
 import { Store } from "@ngrx/store";
 import { getPreference } from "../preferences/preferences.selectors";
 import { Preference } from "../../model/preferences.model";
 import { AppState } from "../store.state";
+import { InitaliseApplication } from "../common/common.actions";
+import { LanguageCode } from "src/app/model/translation.model";
 
 @Injectable({ providedIn: 'root' })
 export class TranslationEffects {
@@ -16,6 +18,16 @@ export class TranslationEffects {
         private translate: TranslateService,
         private store: Store<AppState>,
     ) {}
+
+    setDefaultLanguage$ = createEffect(() => 
+        this.actions$.pipe(
+            ofType(InitaliseApplication),
+            tap(() => {
+                this.translate.setDefaultLang(LanguageCode.en);
+            }),
+            switchMap(() => of(SetDefaultLanguageSuccess({})))
+        )
+    );
 
     loadTranslations$ = createEffect(() => 
         this.actions$.pipe(
