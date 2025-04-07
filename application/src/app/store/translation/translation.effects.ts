@@ -29,6 +29,15 @@ export class TranslationEffects {
         )
     );
 
+    restoreSerialisedTranslations$ = createEffect(() => 
+        this.actions$.pipe(
+            ofType(InitaliseApplication),
+            switchMap(() => of(LoadTranslations({
+                code: localStorage.getItem('translations.languageCode') as LanguageCode || LanguageCode.en
+            })))
+        )
+    );
+
     loadTranslations$ = createEffect(() => 
         this.actions$.pipe(
             ofType(LoadTranslations),

@@ -74,6 +74,40 @@ describe('TranslationEffects', () => {
         });
     });
 
+    describe('restoreSerialisedTranslations$', () => {
+        [
+            {
+                storedItem: null,
+                expectedCode: LanguageCode.en
+            },
+            {
+                storedItem: 'en',
+                expectedCode: LanguageCode.en
+            },
+            {
+                storedItem: 'fr',
+                expectedCode: LanguageCode.fr
+            }
+        ].forEach(({ storedItem, expectedCode }) => {
+            it(`should load the language ${expectedCode} when the stored value is ${storedItem}`, done => {
+                // Given there is known data in the localStorage
+                spyOn(localStorage, 'getItem').and.returnValue(storedItem);
+                const action = InitaliseApplication({});
+
+                // When the action is dispatched
+                const sub = effects.restoreSerialisedTranslations$.subscribe(action => {
+                    // Then is should load the expected language
+                    expect(action.type).toEqual(TranslationAction.LOAD_TRANSLATIONS);
+                    expect(action.code).toEqual(expectedCode);
+
+                    sub.unsubscribe();
+                    done();
+                });
+                actionPublisher.next(action);
+            });
+        });
+    });
+
     describe('loadTranslations$', () => {
         [ LanguageCode.en, LanguageCode.fr ].forEach(language => {
             [ true, false ].forEach(storePreferences => {
