@@ -8,11 +8,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         # Auto-generates APP_VERSION in environment files
       - run: sed -i -e "s|APP_VERSION|$(echo $GITHUB_WORKFLOW | sed -En 's/.*([0-9]+\.[0-9]+\.)X.*/\1/p')$GITHUB_RUN_NUMBER|g" application/src/environments/environment*.ts
       - name: Create an artefact from the code
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: application_code
           path: application/*
@@ -24,11 +24,11 @@ jobs:
     needs: Checkout
     steps:
       - name: Download code
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: application_code
       - name: Install Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
       - run: npm install
       - run: npm run test-cicd
 
@@ -43,15 +43,15 @@ jobs:
     needs: Test
     steps:
       - name: Download code
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: application_code
       - name: Install Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
       - run: npm install
       - run: npm run build-${{ matrix.env_to_build }}
       - name: Artifact build
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: build-${{ matrix.env_to_build }}
           path: dist/${{ matrix.env_to_build }}
@@ -71,7 +71,7 @@ jobs:
     environment: ${{ matrix.env_to_deploy }}
     steps:
       - name: Download code
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: build-${{ matrix.env_to_deploy }}
           path: build-directory
